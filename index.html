@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>北九州 9 日自駕</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="北九州9日">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#fff7ed">
+    <meta name="description" content="北九州 9 日自駕行程規劃，福岡・太宰府・長崎・豪斯登堡・佐世保・別府・由布院・阿蘇・熊本，含每日行程、訂單資訊、自駕攻略、購物清單與注意事項。">
+
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/197/197604.png">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff7ed 0%, #ffffff 40%, #ffffff 60%, #fdf4ff 100%);
+            font-family: 'Inter', 'Helvetica Neue', Arial, 'Microsoft JhengHei', sans-serif;
+            min-height: 100vh;
+            overscroll-behavior-y: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .font-serif-tc { font-family: 'Noto Serif TC', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .fade-transition { transition: opacity 0.3s ease, transform 0.3s ease; }
+        .soft-shadow { box-shadow: 0 10px 30px -10px rgba(0,0,0,0.08), 0 0 15px rgba(255,255,255,0.6); }
+
+        .badge-pill { display: inline-flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
+        @media (min-width: 768px) { .badge-pill { padding: 4px 10px; font-size: 0.75rem; } }
+
+        .badge-food   { background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
+        .badge-buy    { background-color: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8; }
+        .badge-booking{ background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .badge-story  { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
+        .badge-sight  { background-color: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+        .badge-tip    { background-color: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
+        .badge-green  { background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+
+        /* Autumn maple leaf animation */
+        @keyframes fall {
+            0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(420deg); opacity: 0; }
+        }
+        .leaf {
+            position: fixed;
+            top: -20px;
+            font-size: 1.2rem;
+            animation: fall linear infinite;
+            pointer-events: none;
+            z-index: 0;
+            user-select: none;
+        }
+
+        /* Tab active state */
+        .tab-btn.active {
+            background-color: #c2410c;
+            color: white;
+            box-shadow: 0 4px 12px rgba(194,65,12,0.3);
+        }
+
+        /* Card hover */
+        .day-event-card {
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .day-event-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px -6px rgba(0,0,0,0.12);
+        }
+
+        /* Date pill active */
+        .date-pill.active {
+            background: #c2410c;
+            color: white;
+            box-shadow: 0 2px 8px rgba(194,65,12,0.3);
+        }
+        .date-pill {
+            transition: all 0.2s ease;
+        }
+
+        /* Tip collapsible */
+        .tip-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0,1,0,1), opacity 0.3s ease;
+            opacity: 0;
+        }
+        .tip-body.open {
+            max-height: 1000px;
+            opacity: 1;
+            transition: max-height 0.4s ease-in, opacity 0.3s ease;
+        }
+        .tip-body ul { padding-left: 1.25rem; list-style-type: disc; }
+        .tip-body li { margin-bottom: 0.3rem; color: #4b5563; line-height: 1.5; }
+        .tip-body strong { color: #1f2937; }
+
+        :root {
+            --autumn: #f97316;
+            --autumn-light: #fff7ed;
+        }
+    </style>
+</head>
+<body class="text-gray-800 pb-16 relative">
+
+    <!-- Decorative autumn leaves -->
+    <span class="leaf" style="left:5%;animation-duration:9s;animation-delay:0s;">🍁</span>
+    <span class="leaf" style="left:15%;animation-duration:12s;animation-delay:2s;">🍂</span>
+    <span class="leaf" style="left:30%;animation-duration:10s;animation-delay:5s;">🍁</span>
+    <span class="leaf" style="left:50%;animation-duration:14s;animation-delay:1s;">🍂</span>
+    <span class="leaf" style="left:65%;animation-duration:11s;animation-delay:3s;">🍁</span>
+    <span class="leaf" style="left:80%;animation-duration:8s;animation-delay:4s;">🍂</span>
+    <span class="leaf" style="left:92%;animation-duration:13s;animation-delay:6s;">🍁</span>
+
+    <!-- ===== HEADER ===== -->
+    <header class="pt-6 md:pt-10 pb-3 text-center px-3 relative z-10">
+        <p class="text-xs tracking-[0.25em] text-orange-500 font-semibold uppercase mb-1">✈️ 旅遊行程規劃</p>
+        <h1 class="text-[1.45rem] md:text-[2.2rem] font-serif-tc font-bold tracking-[0.1em] text-[#1a1a1a] mb-1">
+            北九州 9 日自駕
+        </h1>
+        <p class="text-sm text-gray-400 mb-5">🗾 福岡 · 長崎 · 佐世保 · 別府 · 由布院 · 阿蘇 · 熊本</p>
+
+        <!-- Navigation Tabs -->
+        <div class="max-w-5xl mx-auto overflow-x-auto no-scrollbar pb-3 px-1 text-center">
+            <div class="inline-flex bg-white/60 backdrop-blur-md p-1 rounded-full shadow-sm border border-gray-200">
+                <button onclick="switchTab('itinerary')" id="tab-itinerary" class="tab-btn active px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 whitespace-nowrap">
+                    <i class="fas fa-calendar-alt mr-1"></i>行程
+                </button>
+                <button onclick="switchTab('tools')" id="tab-tools" class="tab-btn px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 text-gray-500 hover:text-gray-800 bg-transparent whitespace-nowrap">
+                    <i class="fas fa-file-invoice mr-1"></i>訂單資訊
+                </button>
+                <button onclick="switchTab('transport')" id="tab-transport" class="tab-btn px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 text-gray-500 hover:text-gray-800 bg-transparent whitespace-nowrap">
+                    <i class="fas fa-car mr-1"></i>自駕
+                </button>
+                <button onclick="switchTab('shopping')" id="tab-shopping" class="tab-btn px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 text-gray-500 hover:text-gray-800 bg-transparent whitespace-nowrap">
+                    <i class="fas fa-shopping-bag mr-1"></i>購物
+                </button>
+                <button onclick="switchTab('luggage')" id="tab-luggage" class="tab-btn px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 text-gray-500 hover:text-gray-800 bg-transparent whitespace-nowrap">
+                    <i class="fas fa-suitcase mr-1"></i>行李
+                </button>
+                <button onclick="switchTab('notes')" id="tab-notes" class="tab-btn px-3 md:px-5 py-1.5 md:py-2 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 text-gray-500 hover:text-gray-800 bg-transparent whitespace-nowrap">
+                    <i class="fas fa-bullhorn mr-1"></i>注意事項
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== VIEW 1: ITINERARY ========== -->
+    <div id="view-itinerary" class="block relative z-10">
+        <!-- Date Navigation -->
+        <div class="max-w-4xl mx-auto px-3 md:px-4 mb-5 md:mb-8 text-center">
+            <div class="inline-flex bg-white/80 backdrop-blur-xl rounded-[2rem] shadow-sm border border-white p-1.5 flex items-center justify-between w-full md:w-auto">
+                <button onclick="scrollNav('left')" class="shrink-0 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors">
+                    <i class="fas fa-chevron-left text-sm"></i>
+                </button>
+                <div id="date-nav" class="flex-1 flex overflow-x-auto justify-start items-center space-x-1 no-scrollbar scroll-smooth px-1 md:max-w-[600px]"></div>
+                <button onclick="scrollNav('right')" class="shrink-0 z-20 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full hover:bg-gray-100 text-gray-400 hover:text-gray-700 transition-colors">
+                    <i class="fas fa-chevron-right text-sm"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Day Card -->
+        <div class="px-3 md:px-4">
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] soft-shadow max-w-3xl mx-auto p-4 sm:p-6 md:p-10 border border-white relative overflow-hidden" id="main-card-content">
+                <div class="flex flex-row items-center gap-3 md:gap-5 mb-5 md:mb-8">
+                    <div class="shrink-0 flex flex-col items-center justify-center w-16 h-16 md:w-[5.5rem] md:h-[5.5rem] border border-orange-100 rounded-[1rem] md:rounded-2xl bg-orange-50 shadow-sm">
+                        <span class="text-2xl md:text-[1.8rem] font-black leading-none text-gray-800" id="card-date">--</span>
+                        <span class="text-[10px] md:text-[12px] font-black tracking-[0.1em] text-orange-500 mt-1 uppercase" id="card-day-week">---</span>
+                        <span class="text-[9px] md:text-[10px] font-semibold tracking-[0.05em] text-gray-400 mt-0.5 uppercase" id="card-month">---</span>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2 mb-1 md:mb-2">
+                            <span class="inline-block bg-[#2d3748] text-white text-[10px] md:text-[11px] px-2.5 py-0.5 rounded-full tracking-wider font-medium" id="card-tag">城市</span>
+                            <div class="inline-flex items-center gap-1.5 bg-orange-50 text-orange-600 text-[10px] md:text-[11px] px-2.5 py-0.5 rounded-full border border-orange-100 font-medium whitespace-nowrap" id="card-weather"></div>
+                        </div>
+                        <h2 class="text-[1.15rem] md:text-[1.75rem] font-serif-tc font-bold text-gray-800 leading-snug tracking-wide truncate md:whitespace-normal" id="card-title">載入中...</h2>
+                    </div>
+                </div>
+
+                <div class="space-y-3 md:space-y-4" id="card-events">
+                    <!-- Dynamically generated -->
+                </div>
+
+                <div class="flex justify-between items-center mt-8 md:mt-12 pt-6 border-t border-gray-100">
+                    <button id="btn-prev" onclick="changeDay(currentIndex - 1)" class="px-4 md:px-5 py-2 md:py-2.5 border border-gray-300 rounded-full text-[12px] md:text-sm font-medium text-gray-600 hover:border-gray-800 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                        <i class="fas fa-arrow-left text-[10px]"></i> 上一天
+                    </button>
+                    <button id="btn-next" onclick="changeDay(currentIndex + 1)" class="px-4 md:px-5 py-2 md:py-2.5 border border-gray-300 rounded-full text-[12px] md:text-sm font-medium text-gray-600 hover:border-gray-800 hover:bg-gray-50 transition-colors flex items-center gap-2">
+                        下一天 <i class="fas fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== VIEW 2: TOOLS 訂單資訊 ========== -->
+    <div id="view-tools" class="hidden px-3 md:px-4 relative z-10">
+        <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+
+            <!-- 航班資訊 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-3 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-plane text-blue-500"></i> 航班資訊
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <!-- 去程 -->
+                    <div class="bg-blue-50/50 p-3.5 md:p-4 rounded-xl border border-blue-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2 pb-2 border-b border-blue-100/50">
+                                <div>
+                                    <span class="font-bold text-blue-900 text-[13.5px] md:text-[14.5px] block">去程 ➔ 福岡 (FUK)</span>
+                                    <span class="text-[10px] text-blue-600 bg-blue-100 px-1.5 py-0.5 rounded font-mono mt-0.5 inline-block">待填入航班號碼</span>
+                                </div>
+                                <span class="bg-gray-400 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">待確認</span>
+                            </div>
+                            <div class="space-y-2 text-[12.5px] text-gray-700">
+                                <div class="flex items-start gap-2"><i class="fas fa-calendar-day text-blue-500 w-4 text-center mt-0.5"></i><p><strong>日期：</strong>2026/09/26 (六)</p></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-clock text-blue-500 w-4 text-center mt-0.5"></i><p><strong>時間：</strong>待填入</p></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-blue-500 w-4 text-center mt-0.5"></i><p><strong>航廈：</strong>桃園 ➔ 福岡</p></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-blue-100/50 flex gap-2">
+                            <a href="#" target="_blank" class="flex-1 text-center text-[11px] bg-white border border-blue-200 text-blue-600 hover:bg-blue-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
+                        </div>
+                    </div>
+
+                    <!-- 回程 -->
+                    <div class="bg-emerald-50/50 p-3.5 md:p-4 rounded-xl border border-emerald-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2 pb-2 border-b border-emerald-100/50">
+                                <div>
+                                    <span class="font-bold text-emerald-900 text-[13.5px] md:text-[14.5px] block">回程 ➔ 台北桃園 (TPE)</span>
+                                    <span class="text-[10px] text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded font-mono mt-0.5 inline-block">待填入航班號碼</span>
+                                </div>
+                                <span class="bg-gray-400 text-white text-[10px] px-1.5 py-0.5 rounded font-bold">待確認</span>
+                            </div>
+                            <div class="space-y-2 text-[12.5px] text-gray-700">
+                                <div class="flex items-start gap-2"><i class="fas fa-calendar-day text-emerald-500 w-4 text-center mt-0.5"></i><p><strong>日期：</strong>2026/10/04 (日)</p></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-clock text-emerald-500 w-4 text-center mt-0.5"></i><p><strong>時間：</strong>待填入</p></div>
+                                <div class="flex items-start gap-2"><i class="fas fa-map-marker-alt text-emerald-500 w-4 text-center mt-0.5"></i><p><strong>航廈：</strong>福岡 ➔ 桃園</p></div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-2 border-t border-emerald-100/50 flex gap-2">
+                            <a href="#" target="_blank" class="flex-1 text-center text-[11px] bg-white border border-emerald-200 text-emerald-600 hover:bg-emerald-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 住宿資訊 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-3 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-hotel text-purple-500"></i> 住宿資訊
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-start gap-3 p-3 rounded-xl bg-orange-50/50 border border-orange-100">
+                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-orange-500 shadow-sm shrink-0"><i class="fas fa-bed"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-[13.5px] text-gray-800">福岡 住宿（待填入）</p>
+                            <p class="text-[12px] text-gray-500">9/26 ~ 9/27（1晚） • <span class="font-mono text-[11px] bg-orange-100/80 text-orange-700 px-1.5 py-0.5 rounded">待填入訂單號</span></p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 rounded-xl bg-red-50/50 border border-red-100">
+                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-red-500 shadow-sm shrink-0"><i class="fas fa-bed"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-[13.5px] text-gray-800">長崎 住宿（待填入）</p>
+                            <p class="text-[12px] text-gray-500">9/27 ~ 9/29（2晚） • <span class="font-mono text-[11px] bg-red-100/80 text-red-700 px-1.5 py-0.5 rounded">待填入訂單號</span></p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 rounded-xl bg-purple-50/50 border border-purple-100">
+                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-purple-500 shadow-sm shrink-0"><i class="fas fa-hot-tub"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-[13.5px] text-gray-800">別府 溫泉旅館（待填入）</p>
+                            <p class="text-[12px] text-gray-500">9/29 ~ 10/1（2晚） • <span class="font-mono text-[11px] bg-purple-100/80 text-purple-700 px-1.5 py-0.5 rounded">待填入訂單號</span></p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 rounded-xl bg-green-50/50 border border-green-100">
+                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-green-500 shadow-sm shrink-0"><i class="fas fa-hot-tub"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-[13.5px] text-gray-800">由布院 旅館（待填入）</p>
+                            <p class="text-[12px] text-gray-500">10/1 ~ 10/2（1晚） • <span class="font-mono text-[11px] bg-green-100/80 text-green-700 px-1.5 py-0.5 rounded">待填入訂單號</span></p>
+                        </div>
+                    </li>
+                    <li class="flex items-start gap-3 p-3 rounded-xl bg-blue-50/50 border border-blue-100">
+                        <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center text-blue-500 shadow-sm shrink-0"><i class="fas fa-bed"></i></div>
+                        <div class="flex-1 min-w-0">
+                            <p class="font-bold text-[13.5px] text-gray-800">熊本 / 福岡 住宿（待填入）</p>
+                            <p class="text-[12px] text-gray-500">10/2 ~ 10/4（2晚） • <span class="font-mono text-[11px] bg-blue-100/80 text-blue-700 px-1.5 py-0.5 rounded">待填入訂單號</span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 租車資訊 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-3 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-file-invoice text-indigo-500"></i> 租車資訊
+                </h3>
+                <div class="bg-indigo-50/50 border border-indigo-100 rounded-xl overflow-hidden shadow-sm">
+                    <div class="p-3 md:p-4 border-b border-indigo-100 flex justify-between items-start bg-white/50">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-indigo-600 shadow-sm shrink-0"><i class="fas fa-car-side text-lg"></i></div>
+                            <div>
+                                <p class="text-[13.5px] md:text-[14.5px] font-bold text-gray-800 leading-tight">租車（福岡機場取還）</p>
+                                <p class="text-[11.5px] text-gray-500 mt-0.5">8人座 MPV / 6人乘坐（待確認車型）</p>
+                            </div>
+                        </div>
+                        <span class="block bg-gray-200 text-gray-600 text-[10px] px-2 py-0.5 rounded font-bold">待確認</span>
+                    </div>
+                    <div class="p-3 md:p-4 text-[12.5px] text-gray-700 space-y-2">
+                        <div class="flex items-center gap-2"><i class="fas fa-map-marker-alt text-blue-500 w-4 text-center"></i><p><strong>取車：</strong>9/26 抵達後 @ 福岡機場</p></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-flag-checkered text-green-500 w-4 text-center"></i><p><strong>還車：</strong>10/4 出發前 @ 福岡機場</p></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-users text-orange-500 w-4 text-center"></i><p><strong>乘客：</strong>6 人（需確認 8 人座以上車型）</p></div>
+                        <div class="flex items-center gap-2"><i class="fas fa-info-circle text-purple-500 w-4 text-center"></i><p><strong>備註：</strong>確認 ETC 卡、兒童座椅（若需要）</p></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== VIEW 3: TRANSPORT 自駕 ========== -->
+    <div id="view-transport" class="hidden px-3 md:px-4 relative z-10">
+        <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+
+            <div class="bg-amber-50 p-4 md:p-5 rounded-xl border border-amber-200 soft-shadow">
+                <h4 class="font-bold text-amber-800 text-[14.5px] md:text-base mb-3 flex items-center gap-2">
+                    <i class="fas fa-car"></i> 🚗 自駕行程概覽（Day 1-9）
+                </h4>
+                <ul class="text-[13px] md:text-[13.5px] text-gray-700 space-y-2 list-disc pl-4">
+                    <li><strong>Day 1（9/26）：</strong>福岡機場取車 → 博多市區或直接往太宰府（車程 30 分）</li>
+                    <li><strong>Day 2（9/27）：</strong>福岡市區自駕（太宰府天滿宮 → 博多運河城 → 中洲屋台）</li>
+                    <li><strong>Day 3（9/28）：</strong>福岡 → 長崎（走長崎自動車道，車程約 2 小時）</li>
+                    <li><strong>Day 4（9/29）：</strong>長崎 → 豪斯登堡 → 佐世保（車程約 1 小時）→ 往別府（車程約 2.5 小時）</li>
+                    <li><strong>Day 5（9/30）：</strong>別府市區地獄巡遊（各地獄景點間車程 5-10 分鐘）</li>
+                    <li><strong>Day 6（10/1）：</strong>別府 → 由布院（車程約 45 分），由布院小鎮散策</li>
+                    <li><strong>Day 7（10/2）：</strong>由布院 → 阿蘇山（車程約 1.5 小時）→ 熊本（車程約 1 小時）</li>
+                    <li><strong>Day 8（10/3）：</strong>熊本市區（熊本城、馬肉料理）</li>
+                    <li><strong>Day 9（10/4）：</strong>熊本 → 福岡機場（車程約 2 小時）還車後搭機返台</li>
+                </ul>
+            </div>
+
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-road text-blue-500"></i> 重點路段資訊
+                </h3>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                        <i class="fas fa-check-circle text-blue-500 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-[13.5px] text-blue-800">長崎自動車道（E34）</p>
+                            <p class="text-[12px] text-gray-600">福岡 → 長崎約 2 小時，走高速最快，收費約 ¥2,500（ETC 優惠）。長崎市內山坡多，停車建議停大型停車場。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                        <i class="fas fa-check-circle text-blue-500 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-[13.5px] text-blue-800">大分自動車道（E10）</p>
+                            <p class="text-[12px] text-gray-600">佐世保 → 別府約 2.5 小時，途中可停嬉野溫泉稍作休息。別府地獄巡遊各景點之間車程短，非常適合自駕。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-green-50 rounded-xl border border-green-100">
+                        <i class="fas fa-check-circle text-green-500 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-[13.5px] text-green-800">別府 → 由布院（由布岳麓道）</p>
+                            <p class="text-[12px] text-gray-600">走やまなみハイウェイ最美！雖然車程多 20 分鐘，但沿途高原景色絕佳，秋季楓葉更是一絕。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-orange-50 rounded-xl border border-orange-100">
+                        <i class="fas fa-check-circle text-orange-500 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-[13.5px] text-orange-800">阿蘇山 火口周邊道路</p>
+                            <p class="text-[12px] text-gray-600">阿蘇山火口根據火山活動狀況可能封路！出發前請查看「阿蘇山火山情報」確認開放狀態。阿蘇パノラマライン是必走絕景公路。</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3 p-3 bg-red-50 rounded-xl border border-red-100">
+                        <i class="fas fa-exclamation-triangle text-red-400 mt-0.5 shrink-0"></i>
+                        <div>
+                            <p class="font-bold text-[13.5px] text-red-700">⚠️ 6人座車輛特別提醒</p>
+                            <p class="text-[12px] text-gray-600">6 人同行須預訂 8 人座以上 MPV（如 Toyota Alphard、Noah、Hiace）。九州各租車公司大型車數量有限，務必提前預訂！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-parking text-orange-500"></i> 各城市停車要點
+                </h3>
+                <ul class="space-y-2 text-[13px] text-gray-700 list-disc pl-5">
+                    <li><strong>福岡博多：</strong>中洲・天神周邊停車費較貴，建議使用「タイムズ」連鎖停車場，可 App 預查空位。</li>
+                    <li><strong>長崎市區：</strong>坡道多且狹窄，推薦停在長崎站周邊大型停車場後搭路面電車移動。</li>
+                    <li><strong>別府地獄：</strong>各地獄景點均設有免費或低價停車場，自駕非常方便。</li>
+                    <li><strong>由布院：</strong>由布院站附近有大型免費停車場，建議早上抵達停好車再步行遊逛。</li>
+                    <li><strong>熊本城周邊：</strong>熊本城三の丸駐車場最近，建議平日前往避開週末人潮。</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== VIEW 4: SHOPPING 購物 ========== -->
+    <div id="view-shopping" class="hidden px-3 md:px-4 relative z-10">
+        <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-shopping-bag text-pink-500"></i> 購物清單
+                </h3>
+                <div class="space-y-4" id="shopping-list">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-3 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-store text-purple-500"></i> 九州必買伴手禮
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="p-3 rounded-xl bg-red-50 border border-red-100">
+                        <p class="font-bold text-[13.5px] text-red-800">🐟 博多・福岡</p>
+                        <p class="text-[12px] text-gray-600 mt-1">明太子（辛子明太子）、博多通りもん（白餡饅頭）、博多一口餃子冷凍包</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-amber-50 border border-amber-100">
+                        <p class="font-bold text-[13.5px] text-amber-800">🍰 長崎</p>
+                        <p class="text-[12px] text-gray-600 mt-1">長崎カステラ（文明堂・福砂屋）、長崎ちゃんぽん麵條、ハウステンボス限定商品</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-purple-50 border border-purple-100">
+                        <p class="font-bold text-[13.5px] text-purple-800">♨️ 別府・由布院</p>
+                        <p class="text-[12px] text-gray-600 mt-1">由布院牛乳布丁、地獄蒸しプリン、溫泉湯之花入浴劑、由布院限定各式雜貨</p>
+                    </div>
+                    <div class="p-3 rounded-xl bg-green-50 border border-green-100">
+                        <p class="font-bold text-[13.5px] text-green-800">🐴 熊本</p>
+                        <p class="text-[12px] text-gray-600 mt-1">からし蓮根（辛子蓮藕）、熊本ラーメン、くまモン周邊商品、馬刺し真空包</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== VIEW 5: LUGGAGE 行李 ========== -->
+    <div id="view-luggage" class="hidden px-3 md:px-4 relative z-10">
+        <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-suitcase text-orange-500"></i> 行李打包清單
+                </h3>
+                <div class="space-y-4" id="luggage-list">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+
+            <!-- 9-10月氣候 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-3 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-cloud-sun text-yellow-500"></i> 9-10 月北九州氣候參考
+                </h3>
+                <div class="overflow-x-auto rounded-xl border border-gray-200">
+                    <table class="w-full text-[13px] text-left bg-white">
+                        <thead class="bg-gray-50 text-gray-700 border-b">
+                            <tr>
+                                <th class="p-3 font-bold">地區</th>
+                                <th class="p-3 font-bold">溫度範圍</th>
+                                <th class="p-3 font-bold">備註</th>
+                                <th class="p-3 font-bold">建議穿著</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y text-gray-700">
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-semibold">福岡・長崎</td><td class="p-3">22-28°C 🌤️</td><td class="p-3">初秋，白天仍熱</td><td class="p-3">短袖＋薄外套</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-semibold">別府・由布院</td><td class="p-3">18-25°C 🍁</td><td class="p-3">山區早晚涼</td><td class="p-3">薄外套必備</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-semibold">阿蘇山</td><td class="p-3">15-23°C ⛰️</td><td class="p-3">高原風大</td><td class="p-3">防風外套</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 font-semibold">熊本</td><td class="p-3">20-27°C ☀️</td><td class="p-3">平地舒適</td><td class="p-3">短袖＋薄外套</td></tr>
+                            <tr class="hover:bg-gray-50"><td class="p-3 text-orange-600 font-medium" colspan="4">🍂 9月底至10月初是九州最美的初秋季節，日夜溫差可達 10°C，薄外套必帶！</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ========== VIEW 6: NOTES 注意事項 ========== -->
+    <div id="view-notes" class="hidden px-3 md:px-4 relative z-10">
+        <div class="max-w-3xl mx-auto space-y-4 md:space-y-6">
+
+            <!-- 📋 行前準備代辦清單 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-tasks text-orange-500"></i> 📋 行前準備代辦清單
+                </h3>
+                <p class="text-[12.5px] text-gray-500 mb-4">勾選後系統會自動保存您的進度！</p>
+                <div class="space-y-4" id="notes-checklist">
+                    <!-- Dynamically rendered checklists -->
+                </div>
+            </div>
+
+            <!-- 溫泉禮儀 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-hot-tub text-purple-500"></i> ♨️ 溫泉禮儀與注意事項
+                </h3>
+                <div class="space-y-3 text-[13px] text-gray-700">
+                    <div class="p-3.5 rounded-xl bg-purple-50/50 border border-purple-100">
+                        <h4 class="font-bold text-purple-800 text-[14px] mb-2">基本禮儀</h4>
+                        <ul class="list-disc pl-4 space-y-1.5">
+                            <li>進入浴池前必須先在「かけ湯」（沖洗台）徹底沖洗身體。</li>
+                            <li>毛巾不可浸入浴池，請放在頭頂或浴池邊緣。</li>
+                            <li>有刺青者（Tattoo）大部分公共溫泉禁止入場，請提前確認或預約貸切風呂（包廂溫泉）。</li>
+                            <li>溫泉結束後不要沖洗，讓溫泉成份留在皮膚上效果更好。</li>
+                        </ul>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-orange-50/50 border border-orange-100">
+                        <h4 class="font-bold text-orange-800 text-[14px] mb-2">別府地獄溫泉特別提醒</h4>
+                        <ul class="list-disc pl-4 space-y-1.5">
+                            <li>「地獄」是觀光景點，溫度超過 100°C 的泉源絕對不能靠近！</li>
+                            <li>地獄蒸し工房・鉄輪可以自己拿食材進去蒸，是必體驗的在地食文化。</li>
+                            <li>建議購買 8 個地獄的聯票（約 ¥2,200），比單買划算。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6人同行小貼士 -->
+            <div class="bg-white/95 backdrop-blur-xl rounded-[1.5rem] soft-shadow p-5 md:p-6 border border-white">
+                <h3 class="text-[1.1rem] md:text-lg font-bold text-gray-800 mb-4 border-b pb-2 flex items-center gap-2">
+                    <i class="fas fa-users text-blue-500"></i> 👥 6 人同行自駕注意事項
+                </h3>
+                <div class="space-y-3 text-[13px] text-gray-700">
+                    <div class="p-3 bg-blue-50 rounded-xl border border-blue-100">
+                        <p class="font-bold text-blue-800 mb-1">💰 費用分攤建議</p>
+                        <p>租車費、油費、高速公路費（ETC）建議建立共同基金（每人先繳固定金額），由一人統一管理，出發前確認每人分攤比例，避免旅途中金錢糾紛。</p>
+                    </div>
+                    <div class="p-3 bg-green-50 rounded-xl border border-green-100">
+                        <p class="font-bold text-green-800 mb-1">🎫 景點門票</p>
+                        <p>6 人同行門票費用不小，部分景點有 Klook / KKday 早鳥折扣，建議提前規劃並購買電子票，抵達直接掃碼入場，省錢又省時。</p>
+                    </div>
+                    <div class="p-3 bg-amber-50 rounded-xl border border-amber-100">
+                        <p class="font-bold text-amber-800 mb-1">🍜 餐廳訂位</p>
+                        <p>6 人訂位請<strong>至少提前 2-3 天</strong>，部分熱門餐廳（如由布院、博多知名屋台）甚至需要 1 週前預訂，請統一由一人負責預訂事宜。</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    // ==========================================
+    // ===         行程資料                    ===
+    // ==========================================
+    const itineraryData = [
+        {
+            date: "2026-09-26",
+            title: "抵達福岡 & 取車出發",
+            tag: "啟程",
+            weather: "☀️ 27°C",
+            events: [
+                {
+                    time: "待填", type: "flight", icon: "fas fa-plane",
+                    title: "抵達福岡機場",
+                    desc: "過海關、提領行李，前往租車公司取車。",
+                    badges: [{cls:"booking", icon:"fa-plane", text:"入境辦理"}],
+                    notice: { icon: "fa-clock", text: "取車提醒", warning: "福岡機場國際線與租車中心有距離，請先確認租車公司的接送巴士或步行路線，行李多建議推行李車。" }
+                },
+                {
+                    time: "待填", type: "booking", icon: "fas fa-key",
+                    title: "租車取車 🚗",
+                    desc: "出示日文駕照譯本與台灣護照，確認 ETC 卡、保險範圍、6人座車型。",
+                    badges: [{cls:"booking", icon:"fa-key", text:"取車"}],
+                    tip: { title: "取車秘訣 🚙", content: "1. <b>日文駕照譯本</b>絕對不能忘（沒帶100%無法取車）。<br>2. 務必確認車內 ETC 卡已設定好。<br>3. 保險強烈建議直上最高級（自負額 ¥0 方案）。<br>4. 確認車輛座位數與行李廂空間（6人＋行李須足夠）。" }
+                },
+                {
+                    time: "待填", type: "hotel", icon: "fas fa-hotel",
+                    title: "福岡住宿 Check-in",
+                    desc: "放好行李後，出發探索博多！",
+                    badges: [{cls:"booking", icon:"fa-hotel", text:"福岡首晚"}],
+                    tip: { title: "博多夜晚推薦", content: "中洲の屋台（Yatai）是福岡特有的露天路邊攤文化！晚上去中洲橋邊，坐在屋台吃博多拉麵、串燒、喝啤酒，是最道地的第一晚體驗！" }
+                }
+            ]
+        },
+        {
+            date: "2026-09-27",
+            title: "太宰府天滿宮 & 福岡美食",
+            tag: "文化",
+            weather: "☀️ 26°C",
+            events: [
+                {
+                    time: "09:00", type: "sight", icon: "fas fa-torii-gate",
+                    title: "第一站：太宰府天滿宮",
+                    desc: "日本學問之神菅原道真的聖地，參道上的梅ヶ枝餅必吃！",
+                    badges: [{cls:"sight", icon:"fa-star", text:"學問之神"}],
+                    tip: { title: "太宰府攻略", content: "1. 建議早上抵達，9點前人潮最少，可以好好拍照。<br>2. 參道上的<b>梅ヶ枝餅（うめがえもち）</b>是太宰府名物，現烤最香！<br>3. 旁邊的九州國立博物館也值得一看（建築很美）。<br>4. 停車可以使用參道後方的市營停車場。" }
+                },
+                {
+                    time: "12:00", type: "food", icon: "fas fa-utensils",
+                    title: "午餐：博多名物選一",
+                    desc: "博多拉麵（ラーメン長浜屋）/ 博多水炊き / 牛腸鍋（もつ鍋）",
+                    badges: [{cls:"food", icon:"fa-utensils", text:"博多名物"}],
+                    tip: { title: "福岡美食導覽", content: "<b>博多拉麵</b>：長浜屋 24小時營業，超濃厚豚骨湯底，加麵免費！<br><b>もつ鍋（牛腸鍋）</b>：博多發源的名物，推薦楽天地或一藤，湯底分醬油與味噌兩種。<br><b>博多水炊き</b>：白色清湯雞肉鍋，推薦はかた地どり。" }
+                },
+                {
+                    time: "14:00", type: "buy", icon: "fas fa-shopping-bag",
+                    title: "博多運河城 & 天神地區逛街",
+                    desc: "博多運河城有許多品牌，天神地區是福岡最大購物區。",
+                    badges: [{cls:"buy", icon:"fa-shopping-bag", text:"購物天堂"}],
+                    tip: { title: "購物攻略", content: "1. <b>博多運河城（Canal City Hakata）</b>：露天商場，有UNIQLO、無印良品、各品牌餐廳。<br>2. <b>天神地下街</b>：下雨也不怕，各式店家應有盡有。<br>3. <b>岩田屋 / 大丸百貨</b>：頂樓有食物伴手禮，退稅方便。" }
+                },
+                {
+                    time: "19:00", type: "food", icon: "fas fa-utensils",
+                    title: "晚餐：中洲屋台體驗",
+                    desc: "中洲橋邊的露天屋台是福岡獨有文化，吃拉麵、串燒配啤酒！",
+                    badges: [{cls:"food", icon:"fa-star", text:"屋台文化"}],
+                    notice: { icon: "fa-users", text: "6人訂位提醒", warning: "屋台通常只有10個座位左右，6人同行需要找能容納的大型屋台或分成2組分別入座。建議18:30前到場排隊！" }
+                }
+            ]
+        },
+        {
+            date: "2026-09-28",
+            title: "長崎：異國情調與歷史記憶",
+            tag: "歷史",
+            weather: "⛅ 25°C",
+            events: [
+                {
+                    time: "09:00", type: "transport", icon: "fas fa-car",
+                    title: "福岡 → 長崎",
+                    desc: "走長崎自動車道，車程約 2 小時，抵達後停車在長崎站附近。",
+                    notice: { icon: "fa-car", text: "長崎停車建議", warning: "長崎市內山坡多、道路狹窄，不適合在市區開車！強烈建議把車停在長崎站或夢彩都附近的大型停車場，改搭路面電車（ちんちん電車）移動，一日券只要 ¥600！" }
+                },
+                {
+                    time: "11:00", type: "sight", icon: "fas fa-monument",
+                    title: "原爆資料館 & 平和公園",
+                    desc: "了解長崎原爆歷史，向平和の像獻上敬意。",
+                    badges: [{cls:"sight", icon:"fa-monument", text:"歷史見證"}],
+                    tip: { title: "參觀建議", content: "原爆資料館門票約 ¥200，館內展示非常震撼，建議預留 1.5-2 小時。平和公園是免費開放的，兩個景點步行距離很近。" }
+                },
+                {
+                    time: "13:00", type: "food", icon: "fas fa-utensils",
+                    title: "午餐：長崎ちゃんぽん",
+                    desc: "長崎發源的知名料理！推薦四海楼（始祖本店）或リンガーハット。",
+                    badges: [{cls:"food", icon:"fa-utensils", text:"長崎チャンポン"}],
+                    tip: { title: "什麼是長崎ちゃんぽん？", content: "長崎雜燴麵是由豐盛海鮮、蔬菜與豚骨湯底熬煮的混合麵，是在長崎生活的華人廚師所發明的料理。四海楼是1899年創業的始祖本店，位於眺望長崎港的山坡上。" }
+                },
+                {
+                    time: "14:30", type: "sight", icon: "fas fa-archway",
+                    title: "眼鏡橋 & 寺町・唐人屋敷散策",
+                    desc: "日本現存最古老的石拱橋，周邊有江戶時代的中國城跡。",
+                    badges: [{cls:"sight", icon:"fa-archway", text:"日本三名橋"}]
+                },
+                {
+                    time: "16:00", type: "sight", icon: "fas fa-mountain",
+                    title: "稻佐山夜景展望台（預留）",
+                    desc: "被評為「世界三大夜景」之一的長崎夜景！搭纜車上山。",
+                    badges: [{cls:"sight", icon:"fa-star", text:"世界三大夜景"}],
+                    tip: { title: "夜景攻略", content: "稻佐山纜車（ロープウェイ）來回 ¥1,250，最佳觀賞時間是日落後 30 分鐘，約 19:30-20:00（秋季）。建議 18:30 抵達纜車站排隊。" }
+                },
+                {
+                    time: "19:30", type: "hotel", icon: "fas fa-hotel",
+                    title: "長崎 Check-in",
+                    desc: "放完行李，附近走走吃個晚餐。",
+                    badges: [{cls:"booking", icon:"fa-hotel", text:"長崎住宿"}]
+                }
+            ]
+        },
+        {
+            date: "2026-09-29",
+            title: "豪斯登堡 & 前往別府",
+            tag: "主題樂園",
+            weather: "☀️ 26°C",
+            events: [
+                {
+                    time: "09:00", type: "sight", icon: "fas fa-landmark",
+                    title: "豪斯登堡（ハウステンボス）",
+                    desc: "日本最大的荷蘭主題樂園，花海、風車與夜間燈光秀。",
+                    badges: [{cls:"sight", icon:"fa-landmark", text:"荷蘭主題樂園"}],
+                    tip: { title: "豪斯登堡攻略 🌷", content: "1. 一日券成人約 ¥6,600，建議在 Klook 提前購買有折扣。<br>2. 面積非常大，建議租借園內自行車（約 ¥600）或搭乘遊覽船。<br>3. 秋季 10 月有「コスモスまつり（波斯菊節）」，花海超美！<br>4. 夜間燈光秀是最大亮點，建議玩到 20:00 左右再離開。" }
+                },
+                {
+                    time: "12:00", type: "food", icon: "fas fa-utensils",
+                    title: "園內午餐",
+                    desc: "豪斯登堡內有各式主題餐廳，推薦荷蘭傳統料理或園內海鮮。",
+                    badges: [{cls:"food", icon:"fa-utensils", text:"主題餐廳"}]
+                },
+                {
+                    time: "16:00", type: "transport", icon: "fas fa-car",
+                    title: "佐世保 → 嬉野溫泉 → 別府",
+                    desc: "離開豪斯登堡，走九州自動車道，車程約 2.5 小時抵達別府。",
+                    notice: { icon: "fa-car", text: "長途注意", warning: "從豪斯登堡到別府車程約 2.5-3 小時，建議中途在嬉野溫泉 SA 休息泡個足湯（免費！），再繼續出發。" }
+                },
+                {
+                    time: "19:00", type: "hotel", icon: "fas fa-hot-tub",
+                    title: "別府溫泉旅館 Check-in ♨️",
+                    desc: "入住別府溫泉旅館，享用溫泉會席料理！",
+                    badges: [{cls:"booking", icon:"fa-hot-tub", text:"溫泉會席"}],
+                    tip: { title: "溫泉旅館禮儀", content: "入住後換上浴衣（Yukata）！別府的溫泉分為「硫磺泉」（透明）和「食塩泉」（淡黃）等多種泉質，可以多泡幾種，對皮膚很好。" }
+                }
+            ]
+        },
+        {
+            date: "2026-09-30",
+            title: "別府地獄溫泉巡遊",
+            tag: "地獄",
+            weather: "☀️ 24°C",
+            events: [
+                {
+                    time: "09:00", type: "sight", icon: "fas fa-fire",
+                    title: "地獄巡遊（8地獄聯票）",
+                    desc: "別府最著名的「地獄巡遊」！8個各具特色的天然溫泉地獄。",
+                    badges: [{cls:"sight", icon:"fa-fire", text:"8個地獄"}],
+                    tip: { title: "地獄巡遊順序建議 🗺️", content: "建議順序：海地獄（藍色最美）→ 鬼石坊主地獄（灰泥泡沫）→ かまど地獄（試泡腳）→ 鬼山地獄（鱷魚）→ 白池地獄 → 血の池地獄（紅色！）→ 龍巻地獄（間歇泉）。<br>聯票約 ¥2,200，6人共省不少！" }
+                },
+                {
+                    time: "12:00", type: "food", icon: "fas fa-fire",
+                    title: "地獄蒸し體驗午餐",
+                    desc: "用天然地熱蒸汽蒸熟食物，地獄蒸し工房・鉄輪是最知名的體驗地點！",
+                    badges: [{cls:"food", icon:"fa-fire", text:"地獄蒸し"}],
+                    notice: { icon: "fa-clock", text: "需要排隊", warning: "地獄蒸し工房非常熱門，平日也可能等候 30-60 分鐘！建議 11:30 前抵達排隊。自備食材（超市購買的海鮮、蔬菜）或購買現場食材包均可。" }
+                },
+                {
+                    time: "14:00", type: "sight", icon: "fas fa-hot-tub",
+                    title: "竹瓦溫泉 & 別府市區散策",
+                    desc: "竹瓦溫泉是明治時代建造的古典木造溫泉，大眾浴場票只要 ¥300！",
+                    badges: [{cls:"sight", icon:"fa-hot-tub", text:"百年古湯"}],
+                    tip: { title: "竹瓦溫泉", content: "竹瓦溫泉入場費 ¥300（普通浴）超便宜！位於別府市中心，外觀是昭和風格的大屋頂，內部保留了傳統的木造浴池。泡完可以在附近的商店街吃吃喝喝。" }
+                },
+                {
+                    time: "19:00", type: "food", icon: "fas fa-utensils",
+                    title: "晚餐：大分名物臼杵フグ或豊後牛",
+                    desc: "大分縣的頂級河豚（臼杵フグ）或和牛！犒賞大家一天的努力。",
+                    badges: [{cls:"food", icon:"fa-star", text:"大分名物"}]
+                }
+            ]
+        },
+        {
+            date: "2026-10-01",
+            title: "由布院：溫泉小鎮與金鱗湖",
+            tag: "療癒",
+            weather: "🍁 22°C",
+            events: [
+                {
+                    time: "10:00", type: "transport", icon: "fas fa-car",
+                    title: "別府 → 由布院（やまなみハイウェイ）",
+                    desc: "走高原公路，沿途初秋景色絕美，車程約 45 分。",
+                    tip: { title: "最美的路線", content: "別府到由布院有兩條路：高速公路（快，40分）和やまなみハイウェイ（稍慢，但沿途牛隻放牧、高原草地、由布岳全景，秋天楓葉更是絕景）。強烈推薦選やまなみハイウェイ！" }
+                },
+                {
+                    time: "10:45", type: "sight", icon: "fas fa-water",
+                    title: "金鱗湖（きんりんこ）",
+                    desc: "由布院最著名的景點！清晨會有薄霧，湖面倒映由布岳，夢幻至極。",
+                    badges: [{cls:"sight", icon:"fa-camera", text:"由布院地標"}],
+                    tip: { title: "最佳拍攝時間", content: "金鱗湖最美的時刻是清晨（7-9點），薄霧加上由布岳倒影，像仙境一樣。我們約 10:45 抵達也很美，但如果是初秋可能薄霧較少。湖邊有CAFE，可以邊喝咖啡邊欣賞。" }
+                },
+                {
+                    time: "11:30", type: "buy", icon: "fas fa-shopping-bag",
+                    title: "由布院ゆふいん通り散策 & 購物",
+                    desc: "由布院 B-speak 布丁蛋糕卷、湯之坪街道各式伴手禮。",
+                    badges: [{cls:"buy", icon:"fa-shopping-bag", text:"伴手禮聖地"}],
+                    tip: { title: "由布院必買清單", content: "1. <b>B-speak 布丁蛋糕卷</b>：由布院最有名的甜點，只在現場販售，需要排隊！<br>2. <b>由布院牛乳布丁</b>：瓷杯裝，超滑順，現吃最棒！<br>3. <b>湯之坪街道（湯の坪街道）</b>：各式雜貨、手工藝品，適合買一些精緻小禮。" }
+                },
+                {
+                    time: "13:00", type: "food", icon: "fas fa-utensils",
+                    title: "午餐：由布院名物",
+                    desc: "湯の坪街道沿線有各式輕食，或選擇坐下來享用大分豊後牛定食。",
+                    badges: [{cls:"food", icon:"fa-utensils", text:"由布院美食"}]
+                },
+                {
+                    time: "15:00", type: "hotel", icon: "fas fa-hot-tub",
+                    title: "由布院旅館 Check-in ♨️",
+                    desc: "放好行李，享用旅館的露天溫泉，看著由布岳泡湯！",
+                    badges: [{cls:"booking", icon:"fa-hot-tub", text:"露天風呂"}],
+                    tip: { title: "由布院旅館推薦", content: "由布院旅館以「露天風呂」和「懷石料理」出名。住宿建議選有<b>客室露天風呂</b>（房間私有溫泉）的旅館，6人可以多訂幾間帶露天的房型，輪流享用最棒！" }
+                }
+            ]
+        },
+        {
+            date: "2026-10-02",
+            title: "阿蘇山火山壯景",
+            tag: "火山",
+            weather: "⛅ 20°C",
+            events: [
+                {
+                    time: "09:00", type: "transport", icon: "fas fa-car",
+                    title: "由布院 → 阿蘇山",
+                    desc: "走阿蘇くじゅう國立公園道，車程約 1.5 小時，沿途高原景色壯麗。",
+                    notice: { icon: "fa-exclamation-triangle", text: "火山活動確認", warning: "阿蘇山根據火山活動狀況，火口周邊可能封閉！出發前請查詢「阿蘇山火山情報」官方網站或氣象廳網站，確認當天是否可以進入火口展望台。" }
+                },
+                {
+                    time: "10:30", type: "sight", icon: "fas fa-mountain",
+                    title: "阿蘇中岳火口展望台（若開放）",
+                    desc: "近距離觀看仍在活動中的火山口，翻滾的火山煙霧震撼人心！",
+                    badges: [{cls:"sight", icon:"fa-mountain", text:"活火山奇景"}],
+                    tip: { title: "阿蘇火口注意", content: "1. 進入火口區域前必須確認當天火山活動等級。<br>2. 有呼吸道問題者請攜帶口罩（硫磺味很濃）。<br>3. 阿蘇山纜車（ロープウェー）目前停駛，需開車或步行前往展望台。<br>4. 若火口封閉，可改前往「草千里濱」欣賞廣闊高原景色。" }
+                },
+                {
+                    time: "12:00", type: "food", icon: "fas fa-utensils",
+                    title: "阿蘇名物午餐：赤牛丼",
+                    desc: "阿蘇放牧的「あか牛（赤牛）」是九州特產！赤牛丼是必吃！",
+                    badges: [{cls:"food", icon:"fa-star", text:"阿蘇赤牛丼"}],
+                    tip: { title: "阿蘇赤牛", content: "阿蘇赤牛是在阿蘇高原自然放牧的和牛品種，脂肪較少、肉質鮮甜。推薦「阿蘇ゆうすい館」或「農家レストランあそ路」，現做赤牛丼約 ¥1,800-2,500。" }
+                },
+                {
+                    time: "13:30", type: "sight", icon: "fas fa-leaf",
+                    title: "草千里濱 & 阿蘇パノラマライン",
+                    desc: "廣大的高原草地，池塘倒映阿蘇山，開車走全景公路絕景連連！",
+                    badges: [{cls:"sight", icon:"fa-leaf", text:"高原絕景"}]
+                },
+                {
+                    time: "16:00", type: "transport", icon: "fas fa-car",
+                    title: "阿蘇山 → 熊本市區",
+                    desc: "走 57 號國道或阿蘇登山道，車程約 1 小時抵達熊本。",
+                    notice: { icon: "fa-road", text: "注意路況", warning: "阿蘇往熊本的國道 57 號部分路段可能有落石管制，請出發前確認開放狀態，必要時繞道 57 バイパス。" }
+                },
+                {
+                    time: "18:00", type: "hotel", icon: "fas fa-hotel",
+                    title: "熊本 Check-in",
+                    desc: "入住熊本市區飯店，晚餐去吃馬肉料理！",
+                    badges: [{cls:"booking", icon:"fa-hotel", text:"熊本住宿"}]
+                },
+                {
+                    time: "19:00", type: "food", icon: "fas fa-utensils",
+                    title: "晚餐：熊本馬肉料理（馬刺し）",
+                    desc: "熊本是全日本馬肉料理的聖地！生馬肉（馬刺し）配蒜泥醬油是必吃。",
+                    badges: [{cls:"food", icon:"fa-star", text:"熊本名物"}],
+                    tip: { title: "馬肉料理推薦", content: "熊本市內有許多馬肉專門店，推薦「桜屋」或「馬桜本店」。<br>必點：馬刺し（生馬肉片）、馬すじ（馬腱子肉燉煮）、馬肉なべ（馬肉火鍋）。<br>不敢吃生的可以選擇炸馬肉（馬メンチカツ）。" }
+                }
+            ]
+        },
+        {
+            date: "2026-10-03",
+            title: "熊本城 & 黑川溫泉（選）",
+            tag: "城池",
+            weather: "🌤️ 23°C",
+            events: [
+                {
+                    time: "09:00", type: "sight", icon: "fas fa-chess-rook",
+                    title: "熊本城（くまもとじょう）",
+                    desc: "日本三名城之一！2016年地震後修復中，現已部分開放。",
+                    badges: [{cls:"sight", icon:"fa-chess-rook", text:"日本三名城"}],
+                    tip: { title: "熊本城攻略", content: "1. 門票 ¥800（天守閣），停車在「城彩苑」旁。<br>2. 2016年熊本地震後大量修復，現在可以入內參觀修復過程展示，非常特別！<br>3. 旁邊的「城彩苑」有各種熊本紀念品與熊本ラーメン可以吃。" }
+                },
+                {
+                    time: "11:00", type: "food", icon: "fas fa-utensils",
+                    title: "熊本拉麵 & からし蓮根",
+                    desc: "熊本ラーメン是豚骨加焦蒜油的獨特風味！必點！",
+                    badges: [{cls:"food", icon:"fa-utensils", text:"熊本拉麵"}],
+                    tip: { title: "熊本美食攻略", content: "<b>熊本ラーメン</b>：推薦「黒亭」或「こむらさき」，特色是湯底加入焦がし黒にんにく油（焦蒜油），香氣非常特別！<br><b>からし蓮根（辛子蓮藕）</b>：蓮藕切片後塞入辛子（芥末）蒸熟再油炸，是熊本的傳統名物，超市有賣真空包，很適合當伴手禮。" }
+                },
+                {
+                    time: "13:00", type: "buy", icon: "fas fa-shopping-bag",
+                    title: "熊本市區最後採購",
+                    desc: "下通・上通アーケード商店街，採購最後一波伴手禮！",
+                    badges: [{cls:"buy", icon:"fa-shopping-bag", text:"熊本商店街"}]
+                },
+                {
+                    time: "15:00", type: "sight", icon: "fas fa-leaf",
+                    title: "（選）水前寺成趣園",
+                    desc: "仿造東海道五十三次的桃山式迴遊庭園，秋季景色優雅。",
+                    badges: [{cls:"sight", icon:"fa-leaf", text:"傳統庭園"}]
+                },
+                {
+                    time: "19:00", type: "food", icon: "fas fa-beer",
+                    title: "晚餐：熊本居酒屋，最後的夜晚！",
+                    desc: "旅程倒數最後一晚，大家一起喝一杯，為旅程畫下美好句點！",
+                    badges: [{cls:"food", icon:"fa-beer", text:"旅程乾杯"}]
+                }
+            ]
+        },
+        {
+            date: "2026-10-04",
+            title: "返回福岡機場，圓滿歸國",
+            tag: "歸途",
+            weather: "☀️ 24°C",
+            events: [
+                {
+                    time: "07:00", type: "hotel", icon: "fas fa-suitcase",
+                    title: "飯店退房 & 行李整理",
+                    desc: "完成退房手續，確認全員行李與貴重物品，準備出發！",
+                    badges: [{cls:"booking", icon:"fa-suitcase", text:"打包戰利品"}],
+                    notice: { icon: "fa-balance-scale", text: "行李超重確認", warning: "請確認行李重量是否超過航空公司托運限制！九州伴手禮很多，明太子、カステラ等記得分散行李重量。" }
+                },
+                {
+                    time: "08:00", type: "transport", icon: "fas fa-car",
+                    title: "熊本 → 福岡機場",
+                    desc: "走九州自動車道，車程約 2 小時。加油後準備還車！",
+                    tip: { title: "還車注意事項", content: "1. <b>滿油還車</b>：租車公司規定必須加滿油才能還車，請找加油站（レギュラー/紅色油槍），並保留收據。<br>2. 建議留 2.5 小時緩衝（堵車+還車+保險+機場手續）。<br>3. 還車前確認車內沒有遺留物品。" }
+                },
+                {
+                    time: "10:30", type: "booking", icon: "fas fa-key",
+                    title: "福岡機場還車 🔑",
+                    desc: "抵達福岡機場租車中心，完成還車手續。",
+                    badges: [{cls:"booking", icon:"fa-key", text:"自駕大功告成"}]
+                },
+                {
+                    time: "11:00", type: "buy", icon: "fas fa-gift",
+                    title: "機場最後補購",
+                    desc: "福岡機場的博多版伴手禮齊全！明太子、博多通りもん、通心粉都在這裡。",
+                    badges: [{cls:"buy", icon:"fa-gift", text:"機場伴手禮"}],
+                    tip: { title: "福岡機場必買", content: "機場免稅店的重點：<br>1. <b>福砂屋・文明堂カステラ</b>：長崎卡斯特拉，機場有現貨。<br>2. <b>ふくや明太子</b>：博多明太子始祖，保冷袋可托運帶回台灣。<br>3. <b>博多通りもん</b>：白蓮花白餡饅頭，送禮超體面！" }
+                },
+                {
+                    time: "待填", type: "flight", icon: "fas fa-plane-departure",
+                    title: "搭乘班機返台 ✈️",
+                    desc: "圓滿結束北九州 9 日自駕之旅！",
+                    badges: [{cls:"booking", icon:"fa-plane-departure", text:"安全返航"}]
+                }
+            ]
+        }
+    ];
+
+    // ==========================================
+    // ===         購物清單資料               ===
+    // ==========================================
+    const shoppingList = [
+        {
+            category: "💊 藥妝保養",
+            color: "pink",
+            items: [
+                { name: "眼藥水（參天、Rohto）", qty: "各 2 瓶" },
+                { name: "口服美白（資生堂 Transino）", qty: "依需求" },
+                { name: "痠痛貼布（撒隆巴斯）", qty: "5 盒" },
+                { name: "整腸錠（太田胃散）", qty: "1-2 盒" },
+                { name: "防曬乳（Anessa 安耐曬）", qty: "1 瓶" },
+                { name: "花王 洗顏粉", qty: "1 盒" }
+            ]
+        },
+        {
+            category: "🍱 九州限定伴手禮",
+            color: "amber",
+            items: [
+                { name: "ふくや 明太子（冷藏真空包）", qty: "依需求" },
+                { name: "博多通りもん（白餡饅頭）", qty: "2-3 盒" },
+                { name: "長崎 福砂屋 カステラ", qty: "2 盒" },
+                { name: "由布院 B-speak ロールケーキ（當地現買）", qty: "現吃" },
+                { name: "地獄蒸しプリン（別府限定）", qty: "1-2 個" },
+                { name: "くまモン周邊商品", qty: "依喜好" },
+                { name: "からし蓮根（辛子蓮藕真空包）", qty: "2-3 包" }
+            ]
+        },
+        {
+            category: "🧴 生活雜貨",
+            color: "purple",
+            items: [
+                { name: "溫泉湯之花入浴劑（別府限定）", qty: "3-5 包" },
+                { name: "LUSH / 日本限定藥妝", qty: "依需求" },
+                { name: "無印良品 日本限定款", qty: "依喜好" }
+            ]
+        },
+        {
+            category: "👕 服飾",
+            color: "blue",
+            items: [
+                { name: "UNIQLO 日本限定款", qty: "依喜好" },
+                { name: "天神 / 博多運河城 品牌選購", qty: "依預算" }
+            ]
+        }
+    ];
+
+    // ==========================================
+    // ===         行李清單資料               ===
+    // ==========================================
+    const luggageList = [
+        {
+            category: "📄 證件文件",
+            color: "blue",
+            items: [
+                "護照（有效期 6 個月以上）",
+                "機票確認單（印出或截圖）",
+                "飯店確認單（各間）",
+                "旅遊保險單",
+                "日文駕照譯本（租車必須！）",
+                "緊急聯絡卡（日語/英語）"
+            ]
+        },
+        {
+            category: "💳 金錢財務",
+            color: "green",
+            items: [
+                "日幣現金（建議帶 JPY 50,000-80,000 / 人）",
+                "VISA/Master 信用卡（海外刷卡）",
+                "備用信用卡（放不同地方）",
+                "共同基金現金（租車、油費、高速費用分攤）"
+            ]
+        },
+        {
+            category: "👕 衣物（9-10月初秋）",
+            color: "orange",
+            items: [
+                "短袖 T-shirt（天數+2 套）",
+                "薄外套 1-2 件（早晚溫差大，阿蘇山高原風大）",
+                "折疊傘（秋季偶有陣雨）",
+                "舒適運動鞋（走路多！）",
+                "涼拖鞋（溫泉旅館浴室用）",
+                "溫泉毛巾（小毛巾，可自備）"
+            ]
+        },
+        {
+            category: "💊 藥品健康",
+            color: "red",
+            items: [
+                "腸胃藥（旅行者腹瀉常見）",
+                "退燒止痛藥",
+                "暈車藥（山路較多，阿蘇山區用）",
+                "Band-Aid 創口貼（新鞋磨腳）",
+                "個人必備藥（處方藥備足）",
+                "口罩（阿蘇山口硫磺味）"
+            ]
+        },
+        {
+            category: "🔌 3C 電器",
+            color: "purple",
+            items: [
+                "手機充電線 × 每人",
+                "行動電源（100Wh 以下）",
+                "萬用插頭轉換器（日本 110V/Type-A）",
+                "相機 + 記憶卡 + 備用電池",
+                "車用手機架（自駕導航必備！）",
+                "耳機（長途車程使用）"
+            ]
+        },
+        {
+            category: "🛁 盥洗備品",
+            color: "cyan",
+            items: [
+                "牙刷牙膏（溫泉旅館通常有提供）",
+                "護膚保濕品",
+                "防曬乳 SPF50+",
+                "個人衛生用品",
+                "洗髮精/潤髮乳（若不信任旅館備品）"
+            ]
+        }
+    ];
+
+    // ==========================================
+    // ===         注意事項代辦清單資料         ===
+    // ==========================================
+    const notesChecklistData = [
+        {
+            category: "🔴 超緊急（立刻辦！）",
+            color: "red",
+            items: [
+                { id: "sep-lic-trans", text: "辦理日文駕照譯本（監理所，帶駕照正本）", urgent: true },
+                { id: "sep-car-book", text: "預訂租車！6人需要 8 人座 MPV，數量有限早訂早有", urgent: true },
+                { id: "sep-vjw", text: "建立 Visit Japan Web 帳號（全員各自）", urgent: true },
+                { id: "sep-passport", text: "確認護照有效期（需至 2027/04/04 以後）", urgent: true }
+            ]
+        },
+        {
+            category: "🟠 出發前 1-2 個月完成",
+            color: "orange",
+            items: [
+                { id: "sep-flight", text: "確認航班並填入訂單資訊頁" },
+                { id: "sep-hotel-fuk", text: "預訂福岡住宿（9/26）" },
+                { id: "sep-hotel-nag", text: "預訂長崎住宿（9/27-9/29）" },
+                { id: "sep-hotel-bep", text: "預訂別府溫泉旅館（9/29-10/1，建議含晚餐的溫泉會席方案）" },
+                { id: "sep-hotel-yufu", text: "預訂由布院旅館（10/1-10/2，有露天溫泉的房型）" },
+                { id: "sep-hotel-kuma", text: "預訂熊本住宿（10/2-10/4）" },
+                { id: "sep-klook-huis", text: "Klook 預購豪斯登堡一日券" }
+            ]
+        },
+        {
+            category: "🟡 出發前 1-2 週完成",
+            color: "amber",
+            items: [
+                { id: "sep-yen", text: "換妥日幣現金（建議每人 JPY 60,000-80,000）" },
+                { id: "sep-common-fund", text: "各人繳交共同基金（租車、油費、高速費分攤）" },
+                { id: "sep-gmaps", text: "下載 Google Maps 九州離線地圖" },
+                { id: "sep-app-aso", text: "阿蘇山火山情報確認（出發前 2-3 天再次確認）" },
+                { id: "sep-restaurant", text: "預訂熱門餐廳（由布院、博多屋台等 6 人訂位）" },
+                { id: "sep-luggage-weight", text: "確認行李重量，借行李秤備用" },
+                { id: "sep-etc", text: "確認租車的 ETC 卡設定" }
+            ]
+        },
+        {
+            category: "✈️ 旅途中/機上",
+            color: "blue",
+            items: [
+                { id: "sep-vjw-final", text: "完成 Visit Japan Web 入境申報（生成 QR Code）" },
+                { id: "sep-arrival-card", text: "飛機上填妥日本申報單" }
+            ]
+        }
+    ];
+
+    // ==========================================
+    // ===         天氣座標對應               ===
+    // ==========================================
+    const dayCoordinates = {
+        0: { name: "福岡", lat: 33.5902, lon: 130.4017, tenkiUrl: "https://tenki.jp/forecast/9/46/8210/40132/" },
+        1: { name: "福岡", lat: 33.5902, lon: 130.4017, tenkiUrl: "https://tenki.jp/forecast/9/46/8210/40132/" },
+        2: { name: "長崎", lat: 32.7503, lon: 129.8779, tenkiUrl: "https://tenki.jp/forecast/9/44/8410/42201/" },
+        3: { name: "佐世保", lat: 33.1802, lon: 129.7150, tenkiUrl: "https://tenki.jp/forecast/9/44/8430/42202/" },
+        4: { name: "別府", lat: 33.2830, lon: 131.4910, tenkiUrl: "https://tenki.jp/forecast/9/43/8220/44202/" },
+        5: { name: "由布院", lat: 33.2600, lon: 131.3590, tenkiUrl: "https://tenki.jp/forecast/9/43/8230/44207/" },
+        6: { name: "阿蘇", lat: 32.8844, lon: 131.1044, tenkiUrl: "https://tenki.jp/forecast/9/42/8300/43423/" },
+        7: { name: "熊本", lat: 32.7900, lon: 130.7417, tenkiUrl: "https://tenki.jp/forecast/9/42/8300/43100/" },
+        8: { name: "福岡", lat: 33.5902, lon: 130.4017, tenkiUrl: "https://tenki.jp/forecast/9/46/8210/40132/" }
+    };
+
+    // ==========================================
+    // ===         全域狀態                    ===
+    // ==========================================
+    let currentIndex = 0;
+    const dayNames = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
+    const monthNames = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+
+    // ==========================================
+    // ===         Tab 切換                    ===
+    // ==========================================
+    function switchTab(tabId) {
+        const views = ['itinerary','tools','transport','shopping','luggage','notes'];
+        views.forEach(v => {
+            const el = document.getElementById('view-' + v);
+            el.classList.add('hidden');
+            el.classList.remove('block');
+            const btn = document.getElementById('tab-' + v);
+            if (btn) {
+                btn.classList.remove('active');
+                btn.classList.add('text-gray-500');
+            }
+        });
+        const target = document.getElementById('view-' + tabId);
+        target.classList.remove('hidden');
+        target.classList.add('block');
+        const activeBtn = document.getElementById('tab-' + tabId);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+            activeBtn.classList.remove('text-gray-500');
+        }
+        if (tabId === 'shopping') renderShoppingList();
+        if (tabId === 'luggage') renderLuggageList();
+        if (tabId === 'notes') renderNotesChecklist();
+    }
+
+    // ==========================================
+    // ===         日期導航                    ===
+    // ==========================================
+    function buildDateNav() {
+        const nav = document.getElementById('date-nav');
+        nav.innerHTML = '';
+        itineraryData.forEach((day, idx) => {
+            const d = new Date(day.date + 'T12:00:00');
+            const pill = document.createElement('button');
+            pill.className = 'date-pill flex flex-col items-center px-3 py-1.5 rounded-full cursor-pointer shrink-0 ' + (idx === 0 ? 'active text-white' : 'text-gray-500 hover:text-gray-800 hover:bg-gray-100');
+            pill.innerHTML = `<span class="text-[10px] font-bold">${dayNames[d.getDay()]}</span><span class="text-[15px] font-black leading-tight">${d.getDate()}</span>`;
+            pill.onclick = () => changeDay(idx);
+            nav.appendChild(pill);
+        });
+    }
+
+    function scrollNav(dir) {
+        const nav = document.getElementById('date-nav');
+        nav.scrollBy({ left: dir === 'left' ? -120 : 120, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // ===         即時天氣預報                 ===
+    // ==========================================
+    const weatherCache = {};
+
+    function getWmoWeatherInfo(code) {
+        const mapping = {
+            0: { emoji: "☀️", desc: "晴朗" }, 1: { emoji: "🌤️", desc: "晴時多雲" },
+            2: { emoji: "⛅", desc: "多雲時晴" }, 3: { emoji: "☁️", desc: "陰天" },
+            45: { emoji: "🌫️", desc: "霧" }, 48: { emoji: "🌫️", desc: "霧" },
+            51: { emoji: "🌧️", desc: "毛毛雨" }, 53: { emoji: "🌧️", desc: "毛毛雨" },
+            55: { emoji: "🌧️", desc: "毛毛雨" }, 61: { emoji: "🌧️", desc: "小雨" },
+            63: { emoji: "🌧️", desc: "中雨" }, 65: { emoji: "🌧️", desc: "大雨" },
+            80: { emoji: "🌧️", desc: "陣雨" }, 81: { emoji: "🌧️", desc: "陣雨" },
+            82: { emoji: "🌧️", desc: "暴雨" }, 95: { emoji: "⛈️", desc: "雷雨" },
+            99: { emoji: "⛈️", desc: "雷雨" }
+        };
+        return mapping[code] || { emoji: "☀️", desc: "晴朗" };
+    }
+
+    function updateWeatherRealtime(dayDate, idx) {
+        const coords = dayCoordinates[idx];
+        if (!coords) return;
+        const weatherEl = document.getElementById('card-weather');
+        function setWeatherUI(emoji, min, max, desc, isRealtime) {
+            const tenkiUrl = coords.tenkiUrl || 'https://tenki.jp/';
+            if (isRealtime) {
+                weatherEl.innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${emoji} ${min}°C~${max}°C (${desc} 預報) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+            } else {
+                weatherEl.innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${emoji} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+            }
+        }
+        if (weatherCache[idx]) {
+            const data = weatherCache[idx];
+            setWeatherUI(data.emoji, data.min, data.max, data.desc, true);
+            return;
+        }
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${coords.lat}&longitude=${coords.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&forecast_days=16`;
+        fetch(url).then(res => res.json()).then(data => {
+            if (data && data.daily && data.daily.time) {
+                const times = data.daily.time;
+                const dIdx = times.indexOf(dayDate);
+                if (dIdx !== -1) {
+                    const code = data.daily.weathercode[dIdx];
+                    const max = Math.round(data.daily.temperature_2m_max[dIdx]);
+                    const min = Math.round(data.daily.temperature_2m_min[dIdx]);
+                    const wInfo = getWmoWeatherInfo(code);
+                    weatherCache[idx] = { emoji: wInfo.emoji, min, max, desc: wInfo.desc };
+                    if (currentIndex === idx) setWeatherUI(wInfo.emoji, min, max, wInfo.desc, true);
+                }
+            }
+        }).catch(err => console.error("Failed to fetch weather:", err));
+    }
+
+    // ==========================================
+    // ===         渲染日行程                  ===
+    // ==========================================
+    function changeDay(idx) {
+        if (idx < 0 || idx >= itineraryData.length) return;
+        currentIndex = idx;
+        const day = itineraryData[idx];
+        const d = new Date(day.date + 'T12:00:00');
+
+        document.getElementById('card-date').textContent = d.getDate();
+        document.getElementById('card-day-week').textContent = dayNames[d.getDay()];
+        document.getElementById('card-month').textContent = monthNames[d.getMonth()] + ' ' + d.getFullYear();
+        document.getElementById('card-tag').textContent = day.tag;
+
+        const coords = dayCoordinates[idx];
+        const tenkiUrl = coords ? coords.tenkiUrl : 'https://tenki.jp/';
+        document.getElementById('card-weather').innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${day.weather} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+        document.getElementById('card-title').textContent = day.title;
+
+        updateWeatherRealtime(day.date, idx);
+
+        const eventsEl = document.getElementById('card-events');
+        eventsEl.innerHTML = '';
+        day.events.forEach(ev => {
+            const colors = {
+                food:      { bg:'bg-red-50',    border:'border-red-200',    icon:'text-red-500',    time:'text-red-400'    },
+                sight:     { bg:'bg-blue-50',   border:'border-blue-200',   icon:'text-blue-500',   time:'text-blue-400'   },
+                buy:       { bg:'bg-pink-50',   border:'border-pink-200',   icon:'text-pink-500',   time:'text-pink-400'   },
+                booking:   { bg:'bg-green-50',  border:'border-green-200',  icon:'text-green-500',  time:'text-green-400'  },
+                transport: { bg:'bg-slate-50',  border:'border-slate-200',  icon:'text-slate-500',  time:'text-slate-400'  },
+                flight:    { bg:'bg-blue-50',   border:'border-blue-200',   icon:'text-blue-600',   time:'text-blue-500'   },
+                hotel:     { bg:'bg-purple-50', border:'border-purple-200', icon:'text-purple-500', time:'text-purple-400' },
+                story:     { bg:'bg-gray-50',   border:'border-gray-200',   icon:'text-gray-400',   time:'text-gray-400'   },
+            };
+            const c = colors[ev.type] || colors['story'];
+            const typeLabels = { food:'餐飲', sight:'景點', buy:'購物', booking:'預訂', transport:'交通', flight:'航班', hotel:'住宿', story:'故事' };
+            const badgeClsMap = { food:'badge-food', buy:'badge-buy', booking:'badge-green', sight:'badge-sight', tip:'badge-tip', story:'badge-story', green:'badge-green' };
+
+            const card = document.createElement('div');
+            card.className = `day-event-card ${c.bg} ${c.border} border rounded-xl p-3 md:p-4`;
+
+            let badgesHtml = '';
+            if (ev.badges && ev.badges.length) {
+                badgesHtml = `<div class="flex flex-wrap gap-1.5 mt-2">${ev.badges.map(b => {
+                    const bcls = badgeClsMap[b.cls] || 'badge-story';
+                    return `<span class="badge-pill ${bcls}"><i class="fas ${b.icon} text-[10px]"></i> ${b.text}</span>`;
+                }).join('')}</div>`;
+            }
+
+            let noticeHtml = '';
+            if (ev.notice) {
+                noticeHtml = `<div class="mt-2.5 bg-white/70 rounded-xl border border-gray-100 p-3 text-[12px] text-gray-700">
+                    <div class="flex items-center gap-2 mb-1.5">
+                        <i class="fas ${ev.notice.icon} text-gray-400 text-sm"></i>
+                        <span class="font-bold text-gray-600">${ev.notice.text}</span>
+                    </div>
+                    <div class="flex items-start gap-2 bg-red-50 rounded-lg border border-red-100 p-2">
+                        <i class="fas fa-exclamation-triangle text-red-400 text-xs mt-0.5 shrink-0"></i>
+                        <span class="text-red-700 font-medium leading-snug">${ev.notice.warning}</span>
+                    </div>
+                </div>`;
+            }
+
+            let tipHtml = '';
+            if (ev.tip) {
+                const tipId = 'tip-' + Math.random().toString(36).substr(2,9);
+                tipHtml = `<div class="mt-2.5 bg-blue-50/60 rounded-xl border border-blue-100 overflow-hidden">
+                    <button onclick="toggleTip('${tipId}')" class="w-full flex items-center gap-2.5 px-4 py-3 text-[12px] font-bold text-blue-600 hover:bg-blue-50 transition-colors text-left">
+                        <i class="fas fa-info-circle text-sm shrink-0"></i>
+                        <span>${ev.tip.title}</span>
+                        <i id="${tipId}-icon" class="fas fa-chevron-down ml-auto transition-transform duration-300 shrink-0 text-xs"></i>
+                    </button>
+                    <div id="${tipId}" class="tip-body px-4">
+                        <div class="pb-4 text-gray-600 leading-relaxed text-[12px] md:text-[12.5px]">${ev.tip.content}</div>
+                    </div>
+                </div>`;
+            }
+
+            card.innerHTML = `
+                <div class="flex gap-3">
+                    <div class="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center ${c.icon} shadow-sm border ${c.border}">
+                        <i class="${ev.icon} text-sm"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="text-[11px] font-bold ${c.time} font-mono">${ev.time}</span>
+                            <span class="badge-pill badge-${ev.type === 'transport' ? 'story' : ev.type === 'flight' ? 'sight' : ev.type === 'hotel' ? 'story' : ev.type}">${typeLabels[ev.type] || ''}</span>
+                        </div>
+                        <p class="font-bold text-[13.5px] md:text-[14.5px] text-gray-800 leading-snug">${ev.title}</p>
+                        <p class="text-[12px] md:text-[13px] text-gray-500 mt-1 leading-relaxed">${ev.desc}</p>
+                    </div>
+                </div>
+                ${badgesHtml}${noticeHtml}${tipHtml}`;
+            eventsEl.appendChild(card);
+        });
+
+        document.querySelectorAll('.date-pill').forEach((pill, i) => {
+            if (i === idx) {
+                pill.classList.add('active', 'text-white');
+                pill.classList.remove('text-gray-500', 'hover:text-gray-800', 'hover:bg-gray-100');
+            } else {
+                pill.classList.remove('active', 'text-white');
+                pill.classList.add('text-gray-500', 'hover:text-gray-800', 'hover:bg-gray-100');
+            }
+        });
+
+        document.getElementById('btn-prev').style.visibility = idx > 0 ? 'visible' : 'hidden';
+        document.getElementById('btn-next').style.visibility = idx < itineraryData.length - 1 ? 'visible' : 'hidden';
+
+        const pills = document.querySelectorAll('.date-pill');
+        if (pills[idx]) pills[idx].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+
+        const cardEl = document.getElementById('main-card-content');
+        cardEl.style.opacity = '0';
+        cardEl.style.transform = 'translateY(8px)';
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                cardEl.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                cardEl.style.opacity = '1';
+                cardEl.style.transform = 'translateY(0)';
+            });
+        });
+    }
+
+    function toggleTip(tipId) {
+        const el = document.getElementById(tipId);
+        const icon = document.getElementById(tipId + '-icon');
+        el.classList.toggle('open');
+        if (icon) icon.style.transform = el.classList.contains('open') ? 'rotate(180deg)' : 'rotate(0deg)';
+    }
+
+    // ==========================================
+    // ===         渲染購物清單               ===
+    // ==========================================
+    function renderShoppingList() {
+        const el = document.getElementById('shopping-list');
+        if (el.children.length > 0) return;
+        const colorMap = {
+            pink:   { bg:'bg-pink-50',   border:'border-pink-100',   title:'text-pink-800'   },
+            amber:  { bg:'bg-amber-50',  border:'border-amber-100',  title:'text-amber-800'  },
+            purple: { bg:'bg-purple-50', border:'border-purple-100', title:'text-purple-800' },
+            blue:   { bg:'bg-blue-50',   border:'border-blue-100',   title:'text-blue-800'   },
+        };
+        shoppingList.forEach(group => {
+            const c = colorMap[group.color] || colorMap.blue;
+            const div = document.createElement('div');
+            div.className = `${c.bg} ${c.border} border rounded-xl p-4`;
+            div.innerHTML = `<h4 class="font-bold text-[14px] ${c.title} mb-3">${group.category}</h4>
+                <ul class="space-y-2">${group.items.map(item => `
+                <li class="flex items-center gap-2 text-[13px] text-gray-700">
+                    <input type="checkbox" class="w-4 h-4 rounded accent-orange-500">
+                    <span class="flex-1">${typeof item === 'string' ? item : item.name}</span>
+                    ${item.qty ? `<span class="text-[11px] text-gray-400 shrink-0">${item.qty}</span>` : ''}
+                </li>`).join('')}</ul>`;
+            el.appendChild(div);
+        });
+    }
+
+    // ==========================================
+    // ===         渲染行李清單               ===
+    // ==========================================
+    function renderLuggageList() {
+        const el = document.getElementById('luggage-list');
+        if (el.children.length > 0) return;
+        const colorMap = {
+            blue:   'bg-blue-50 border-blue-100 text-blue-800',
+            green:  'bg-green-50 border-green-100 text-green-800',
+            orange: 'bg-orange-50 border-orange-100 text-orange-800',
+            red:    'bg-red-50 border-red-100 text-red-800',
+            purple: 'bg-purple-50 border-purple-100 text-purple-800',
+            cyan:   'bg-cyan-50 border-cyan-100 text-cyan-800',
+        };
+        luggageList.forEach(group => {
+            const c = colorMap[group.color] || 'bg-gray-50 border-gray-100 text-gray-800';
+            const [bg, border, title] = c.split(' ');
+            const div = document.createElement('div');
+            div.className = `${bg} ${border} border rounded-xl p-4`;
+            div.innerHTML = `<h4 class="font-bold text-[14px] ${title} mb-3">${group.category}</h4>
+                <ul class="space-y-2">${group.items.map(item => `
+                <li class="flex items-center gap-2 text-[13px] text-gray-700">
+                    <input type="checkbox" class="w-4 h-4 rounded accent-orange-500">
+                    <span>${item}</span>
+                </li>`).join('')}</ul>`;
+            el.appendChild(div);
+        });
+    }
+
+    // ==========================================
+    // ===         渲染注意事項代辦清單         ===
+    // ==========================================
+    function renderNotesChecklist() {
+        const el = document.getElementById('notes-checklist');
+        if (!el) return;
+        el.innerHTML = '';
+        const colorMap = {
+            red:    'bg-red-50 border-red-100 text-red-800',
+            orange: 'bg-orange-50 border-orange-100 text-orange-800',
+            amber:  'bg-amber-50 border-amber-100 text-amber-800',
+            blue:   'bg-blue-50 border-blue-100 text-blue-800',
+        };
+        notesChecklistData.forEach(group => {
+            const c = colorMap[group.color] || 'bg-gray-50 border-gray-100 text-gray-800';
+            const [bg, border, title] = c.split(' ');
+            const div = document.createElement('div');
+            div.className = `${bg} ${border} border rounded-xl p-4`;
+            let listHtml = `<h4 class="font-bold text-[14px] ${title} mb-3 flex items-center gap-1.5">${group.category}</h4>`;
+            listHtml += `<ul class="space-y-2.5">`;
+            group.items.forEach(item => {
+                const checked = localStorage.getItem('sep26_chk_' + item.id) === 'true' ? 'checked' : '';
+                const lineThrough = checked ? 'line-through text-gray-400 font-normal' : 'font-semibold';
+                listHtml += `
+                <li class="flex items-start gap-2.5 text-[13px] text-gray-700">
+                    <input type="checkbox" id="sep26_chk_${item.id}" ${checked} onchange="toggleNotesCheck('${item.id}')" class="w-4 h-4 rounded accent-orange-500 mt-0.5 shrink-0 cursor-pointer">
+                    <label for="sep26_chk_${item.id}" id="sep26_lbl_${item.id}" class="cursor-pointer select-none flex-1 leading-snug ${lineThrough}">
+                        ${item.urgent ? `<span class="bg-red-500 text-white font-bold px-1.5 py-0.5 rounded text-[10px] mr-1">緊急</span>` : ''}
+                        ${item.text}
+                    </label>
+                </li>`;
+            });
+            listHtml += `</ul>`;
+            div.innerHTML = listHtml;
+            el.appendChild(div);
+        });
+    }
+
+    function toggleNotesCheck(id) {
+        const chk = document.getElementById('sep26_chk_' + id);
+        const lbl = document.getElementById('sep26_lbl_' + id);
+        if (chk && lbl) {
+            localStorage.setItem('sep26_chk_' + id, chk.checked);
+            if (chk.checked) {
+                lbl.classList.add('line-through', 'text-gray-400', 'font-normal');
+                lbl.classList.remove('font-semibold');
+            } else {
+                lbl.classList.remove('line-through', 'text-gray-400', 'font-normal');
+                lbl.classList.add('font-semibold');
+            }
+        }
+    }
+
+    // ==========================================
+    // ===            初始化                   ===
+    // ==========================================
+    document.addEventListener('DOMContentLoaded', () => {
+        buildDateNav();
+        changeDay(0);
+        const today = new Date().toISOString().split('T')[0];
+        const todayIdx = itineraryData.findIndex(d => d.date === today);
+        if (todayIdx !== -1) changeDay(todayIdx);
+        renderNotesChecklist();
+    });
+    </script>
+</body>
+</html>
