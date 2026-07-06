@@ -1231,14 +1231,19 @@
 
             let noticeHtml = '';
             if (ev.notice) {
+                const isInfo = ev.notice.text.includes("無障礙") || ev.notice.text.includes("接駁") || ev.notice.text.includes("攻略");
+                const noticeClass = isInfo ? "bg-emerald-50 border-emerald-100 text-emerald-800" : "bg-amber-50 border-amber-100 text-amber-800";
+                const iconClass = isInfo ? "fa-info-circle text-emerald-500" : "fa-exclamation-triangle text-amber-500";
+                const textClass = isInfo ? "text-emerald-700" : "text-amber-800";
+
                 noticeHtml = `<div class="mt-2.5 bg-white/70 rounded-xl border border-gray-100 p-3 text-[12px] text-gray-700">
                     <div class="flex items-center gap-2 mb-1.5">
                         <i class="fas ${ev.notice.icon} text-gray-400 text-sm"></i>
                         <span class="font-bold text-gray-600">${ev.notice.text}</span>
                     </div>
-                    <div class="flex items-start gap-2 bg-red-50 rounded-lg border border-red-100 p-2">
-                        <i class="fas fa-exclamation-triangle text-red-400 text-xs mt-0.5 shrink-0"></i>
-                        <span class="text-red-700 font-medium leading-snug">${ev.notice.warning}</span>
+                    <div class="flex items-start gap-2 ${noticeClass} rounded-lg border p-2 w-full">
+                        <i class="fas ${iconClass} text-xs mt-0.5 shrink-0"></i>
+                        <span class="${textClass} font-medium leading-snug">${ev.notice.warning}</span>
                     </div>
                 </div>`;
             }
