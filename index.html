@@ -41,13 +41,13 @@
         .badge-pill { display: inline-flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
         @media (min-width: 768px) { .badge-pill { padding: 4px 10px; font-size: 0.75rem; } }
 
-        .badge-food   { background-color: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
-        .badge-buy    { background-color: #fdf2f8; color: #db2777; border: 1px solid #fbcfe8; }
-        .badge-booking{ background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
-        .badge-story  { background-color: #f8fafc; color: #475569; border: 1px solid #e2e8f0; }
-        .badge-sight  { background-color: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
-        .badge-tip    { background-color: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
-        .badge-green  { background-color: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+        .badge-food   { background-color: #fff7ed; color: #ea580c; border: 1px solid #ffedd5; }
+        .badge-buy    { background-color: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
+        .badge-booking{ background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
+        .badge-story  { background-color: #fafaf9; color: #57534e; border: 1px solid #f5f5f4; }
+        .badge-sight  { background-color: #f0fdfa; color: #0f766e; border: 1px solid #ccfbf1; }
+        .badge-tip    { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
+        .badge-green  { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
 
         /* Autumn maple leaf animation */
         @keyframes fall {
@@ -1205,14 +1205,14 @@
         eventsEl.innerHTML = '';
         day.events.forEach(ev => {
             const colors = {
-                food:      { bg:'bg-red-50',    border:'border-red-200',    icon:'text-red-500',    time:'text-red-400'    },
-                sight:     { bg:'bg-blue-50',   border:'border-blue-200',   icon:'text-blue-500',   time:'text-blue-400'   },
-                buy:       { bg:'bg-pink-50',   border:'border-pink-200',   icon:'text-pink-500',   time:'text-pink-400'   },
-                booking:   { bg:'bg-green-50',  border:'border-green-200',  icon:'text-green-500',  time:'text-green-400'  },
-                transport: { bg:'bg-slate-50',  border:'border-slate-200',  icon:'text-slate-500',  time:'text-slate-400'  },
-                flight:    { bg:'bg-blue-50',   border:'border-blue-200',   icon:'text-blue-600',   time:'text-blue-500'   },
-                hotel:     { bg:'bg-purple-50', border:'border-purple-200', icon:'text-purple-500', time:'text-purple-400' },
-                story:     { bg:'bg-gray-50',   border:'border-gray-200',   icon:'text-gray-400',   time:'text-gray-400'   },
+                food:      { bg:'bg-orange-50/60', border:'border-orange-100',    icon:'text-orange-600',   time:'text-orange-500'   },
+                sight:     { bg:'bg-teal-50/40',   border:'border-teal-100',      icon:'text-teal-700',     time:'text-teal-600'     },
+                buy:       { bg:'bg-yellow-50/40', border:'border-yellow-200/50', icon:'text-yellow-600',   time:'text-yellow-500'   },
+                booking:   { bg:'bg-emerald-50/40',border:'border-emerald-100',   icon:'text-emerald-700',  time:'text-emerald-600'  },
+                transport: { bg:'bg-amber-50/30',  border:'border-amber-200/40',  icon:'text-amber-700',    time:'text-amber-600'    },
+                flight:    { bg:'bg-indigo-50/40', border:'border-indigo-100',    icon:'text-indigo-600',   time:'text-indigo-500'   },
+                hotel:     { bg:'bg-rose-50/40',   border:'border-rose-100',      icon:'text-rose-600',     time:'text-rose-500'     },
+                story:     { bg:'bg-stone-50',     border:'border-stone-200/60',  icon:'text-stone-500',    time:'text-stone-400'    },
             };
             const c = colors[ev.type] || colors['story'];
             const typeLabels = { food:'餐飲', sight:'景點', buy:'購物', booking:'預訂', transport:'交通', flight:'航班', hotel:'住宿', story:'故事' };
