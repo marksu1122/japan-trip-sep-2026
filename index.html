@@ -41,13 +41,13 @@
         .badge-pill { display: inline-flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
         @media (min-width: 768px) { .badge-pill { padding: 4px 10px; font-size: 0.75rem; } }
 
-        .badge-food   { background-color: #fff1f2; color: #e11d48; border: 1px solid #ffe4e6; } /* Rose Pink */
-        .badge-buy    { background-color: #faf5ff; color: #7e22ce; border: 1px solid #f3e8ff; } /* Purple */
-        .badge-booking{ background-color: #ecfeff; color: #0e7490; border: 1px solid #cffafe; } /* Teal/Cyan */
-        .badge-story  { background-color: #fafaf9; color: #57534e; border: 1px solid #f5f5f4; } /* Stone Gray */
-        .badge-sight  { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; } /* Forest Green */
+        .badge-food   { background-color: #FAF1F1; color: #C38B8B; border: 1px solid #FAF1F1; } /* Smoked Rose Pink */
+        .badge-buy    { background-color: #F5F3F9; color: #524675; border: 1px solid #F5F3F9; } /* Muted Purple */
+        .badge-booking{ background-color: #EEF5F6; color: #3B7A87; border: 1px solid #EEF5F6; } /* Muted Teal */
+        .badge-story  { background-color: #FAFAF9; color: #57534E; border: 1px solid #FAFAF9; } /* Warm Stone Gray */
+        .badge-sight  { background-color: #F2F6F3; color: #3A5F43; border: 1px solid #F2F6F3; } /* Forest Green */
         .badge-tip    { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; } /* Blue Tip */
-        .badge-green  { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
+        .badge-green  { background-color: #F2F6F3; color: #3A5F43; border: 1px solid #F2F6F3; }
 
         /* Autumn maple leaf animation */
         @keyframes fall {
@@ -1205,21 +1205,23 @@
         eventsEl.innerHTML = '';
         day.events.forEach(ev => {
             const colors = {
-                food:      { bg:'bg-rose-50/40',   border:'border-rose-100',      icon:'text-rose-600',     time:'text-rose-500'     },
-                sight:     { bg:'bg-emerald-50/40',border:'border-emerald-100',   icon:'text-emerald-700',  time:'text-emerald-600'  },
-                buy:       { bg:'bg-purple-50/40', border:'border-purple-100',    icon:'text-purple-600',   time:'text-purple-500'   },
-                booking:   { bg:'bg-cyan-50/40',   border:'border-cyan-100',      icon:'text-cyan-700',     time:'text-cyan-600'     },
-                transport: { bg:'bg-slate-50',     border:'border-slate-200',     icon:'text-slate-500',    time:'text-slate-400'    },
-                flight:    { bg:'bg-fuchsia-50/40',border:'border-fuchsia-100',   icon:'text-fuchsia-600',  time:'text-fuchsia-500'  },
-                hotel:     { bg:'bg-violet-50/40', border:'border-violet-100',    icon:'text-violet-600',   time:'text-violet-500'   },
-                story:     { bg:'bg-stone-50',     border:'border-stone-200/60',  icon:'text-stone-500',    time:'text-stone-400'    },
+                food:      { bg: '#FAF1F1', border: '#F5E3E3', icon: '#C38B8B', time: '#C38B8B' },
+                sight:     { bg: '#F2F6F3', border: '#E2ECE5', icon: '#3A5F43', time: '#3A5F43' },
+                buy:       { bg: '#F5F3F9', border: '#E7E3F0', icon: '#524675', time: '#524675' },
+                booking:   { bg: '#EEF5F6', border: '#DCECEF', icon: '#3B7A87', time: '#3B7A87' },
+                transport: { bg: '#F4F6F8', border: '#E5EAEF', icon: '#5A6B7C', time: '#5A6B7C' },
+                flight:    { bg: '#F8F2F9', border: '#EFE2F1', icon: '#A863A0', time: '#A863A0' },
+                hotel:     { bg: '#F4F3F7', border: '#E6E3ED', icon: '#726297', time: '#726297' },
+                story:     { bg: '#FAFAF9', border: '#EBEAE6', icon: '#57534E', time: '#57534E' },
             };
             const c = colors[ev.type] || colors['story'];
             const typeLabels = { food:'餐飲', sight:'景點', buy:'購物', booking:'預訂', transport:'交通', flight:'航班', hotel:'住宿', story:'故事' };
             const badgeClsMap = { food:'badge-food', buy:'badge-buy', booking:'badge-green', sight:'badge-sight', tip:'badge-tip', story:'badge-story', green:'badge-green' };
 
             const card = document.createElement('div');
-            card.className = `day-event-card ${c.bg} ${c.border} border rounded-xl p-3 md:p-4`;
+            card.className = "day-event-card border rounded-xl p-3 md:p-4";
+            card.style.backgroundColor = c.bg;
+            card.style.borderColor = c.border;
 
             let badgesHtml = '';
             if (ev.badges && ev.badges.length) {
@@ -1232,18 +1234,18 @@
             let noticeHtml = '';
             if (ev.notice) {
                 const isDanger = ev.notice.level === "danger";
-                const noticeClass = isDanger ? "bg-red-50 border-red-100 text-red-800" : "bg-amber-50 border-amber-100 text-amber-800";
-                const iconClass = isDanger ? "fa-exclamation-circle text-red-500" : "fa-exclamation-triangle text-amber-500";
-                const textClass = isDanger ? "text-red-700" : "text-amber-800";
+                const noticeClass = isDanger ? "border-[#FDE2E2] text-[#9B2C2C]" : "border-[#F1E6D4] text-[#6B512C]";
+                const iconClass = isDanger ? "fa-exclamation-circle text-[#DC2626]" : "fa-exclamation-triangle text-[#D97706]";
+                const textClass = isDanger ? "text-[#9B2C2C]" : "text-[#6B512C]";
 
                 noticeHtml = `<div class="mt-2.5 bg-white/70 rounded-xl border border-gray-100 p-3 text-[12px] text-gray-700">
                     <div class="flex items-center gap-2 mb-1.5">
                         <i class="fas ${ev.notice.icon} text-gray-400 text-sm"></i>
                         <span class="font-bold text-gray-600">${ev.notice.text}</span>
                     </div>
-                    <div class="flex items-start gap-2 ${noticeClass} rounded-lg border p-2 w-full">
+                    <div class="flex items-start gap-2 ${noticeClass} rounded-lg border p-2 w-full bg-[#FCF8F2]">
                         <i class="fas ${iconClass} text-xs mt-0.5 shrink-0"></i>
-                        <span class="${textClass} font-medium leading-snug">${ev.notice.warning}</span>
+                        <span class="${textClass} font-semibold leading-snug">${ev.notice.warning}</span>
                     </div>
                 </div>`;
             }
@@ -1265,12 +1267,12 @@
 
             card.innerHTML = `
                 <div class="flex gap-3">
-                    <div class="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center ${c.icon} shadow-sm border ${c.border}">
+                    <div class="shrink-0 w-9 h-9 md:w-10 md:h-10 rounded-full bg-white flex items-center justify-center shadow-sm border" style="color: ${c.icon}; border-color: ${c.border}">
                         <i class="${ev.icon} text-sm"></i>
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="flex flex-wrap items-center gap-2 mb-1">
-                            <span class="text-[11px] font-bold ${c.time} font-mono">${ev.time}</span>
+                            <span class="text-[11px] font-bold font-mono" style="color: ${c.time}">${ev.time}</span>
                             <span class="badge-pill badge-${ev.type === 'transport' ? 'story' : ev.type === 'flight' ? 'sight' : ev.type === 'hotel' ? 'story' : ev.type}">${typeLabels[ev.type] || ''}</span>
                         </div>
                         <p class="font-bold text-[13.5px] md:text-[14.5px] text-gray-800 leading-snug">${ev.title}</p>
