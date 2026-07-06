@@ -41,12 +41,12 @@
         .badge-pill { display: inline-flex; align-items: center; gap: 3px; padding: 3px 8px; border-radius: 6px; font-size: 0.7rem; font-weight: 600; white-space: nowrap; letter-spacing: 0.02em; }
         @media (min-width: 768px) { .badge-pill { padding: 4px 10px; font-size: 0.75rem; } }
 
-        .badge-food   { background-color: #fff7ed; color: #ea580c; border: 1px solid #ffedd5; }
-        .badge-buy    { background-color: #fefce8; color: #ca8a04; border: 1px solid #fef08a; }
-        .badge-booking{ background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
-        .badge-story  { background-color: #fafaf9; color: #57534e; border: 1px solid #f5f5f4; }
-        .badge-sight  { background-color: #f0fdfa; color: #0f766e; border: 1px solid #ccfbf1; }
-        .badge-tip    { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; }
+        .badge-food   { background-color: #fff1f2; color: #e11d48; border: 1px solid #ffe4e6; } /* Rose Pink */
+        .badge-buy    { background-color: #faf5ff; color: #7e22ce; border: 1px solid #f3e8ff; } /* Purple */
+        .badge-booking{ background-color: #ecfeff; color: #0e7490; border: 1px solid #cffafe; } /* Teal/Cyan */
+        .badge-story  { background-color: #fafaf9; color: #57534e; border: 1px solid #f5f5f4; } /* Stone Gray */
+        .badge-sight  { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; } /* Forest Green */
+        .badge-tip    { background-color: #eff6ff; color: #1d4ed8; border: 1px solid #dbeafe; } /* Blue Tip */
         .badge-green  { background-color: #f0fdf4; color: #15803d; border: 1px solid #dcfce7; }
 
         /* Autumn maple leaf animation */
@@ -629,7 +629,7 @@
                     title: "阿蘇中岳火口 & 草千里之濱",
                     desc: "近距離觀看火山口冒出的白色煙霧，並遊覽翠綠的草千里大草原。",
                     badges: [{cls:"sight", icon:"fa-mountain", text:"活火山體驗"}],
-                    notice: { icon: "fa-exclamation-triangle", text: "火山管制提醒 ⚠️", warning: "阿蘇中岳火口常因硫磺氣體超標或火山活動而管制封閉。出發當天早上必須上網查詢「阿蘇火山火口規制情報」確認是否開放。若封閉則在草千里遊玩。" }
+                    notice: { level: "danger", icon: "fa-exclamation-triangle", text: "火山管制提醒 ⚠️ (特別重要)", warning: "阿蘇中岳火口常因硫磺氣體超標或火山活動而管制封閉。出發當天早上必須上網查詢「阿蘇火山火口規制情報」確認是否開放。若封閉則在草千里遊玩。" }
                 },
                 {
                     time: "12:30", type: "food", icon: "fas fa-utensils",
@@ -671,7 +671,7 @@
                     title: "高千穗峽划船 & 真名井瀑布",
                     desc: "親自划船穿梭在柱狀節理火山岩壁組成的絕美峽谷中，近距離觀看名列日本百瀑的真名井瀑布！",
                     badges: [{cls:"sight", icon:"fa-ship", text:"高千穗必玩"}],
-                    notice: { icon: "fa-ticket-alt", text: "搶票提醒 ⚠️", warning: "划船票極難搶！必須於「乘船日前30天的早上9:00(日本時間)」準時上網搶購。6人需要搶2艘船。若沒搶到線上票，當天基本上無法乘船。" }
+                    notice: { level: "danger", icon: "fa-ticket-alt", text: "搶票提醒 ⚠️ (特別重要)", warning: "划船票極難搶！必須於「乘船日前30天的早上9:00(日本時間)」準時上網搶購。6人需要搶2艘船。若沒搶到線上票，當天基本上無法乘船。" }
                 },
                 {
                     time: "10:30", type: "sight", icon: "fas fa-train",
@@ -1205,13 +1205,13 @@
         eventsEl.innerHTML = '';
         day.events.forEach(ev => {
             const colors = {
-                food:      { bg:'bg-orange-50/60', border:'border-orange-100',    icon:'text-orange-600',   time:'text-orange-500'   },
-                sight:     { bg:'bg-teal-50/40',   border:'border-teal-100',      icon:'text-teal-700',     time:'text-teal-600'     },
-                buy:       { bg:'bg-yellow-50/40', border:'border-yellow-200/50', icon:'text-yellow-600',   time:'text-yellow-500'   },
-                booking:   { bg:'bg-emerald-50/40',border:'border-emerald-100',   icon:'text-emerald-700',  time:'text-emerald-600'  },
-                transport: { bg:'bg-amber-50/30',  border:'border-amber-200/40',  icon:'text-amber-700',    time:'text-amber-600'    },
-                flight:    { bg:'bg-indigo-50/40', border:'border-indigo-100',    icon:'text-indigo-600',   time:'text-indigo-500'   },
-                hotel:     { bg:'bg-rose-50/40',   border:'border-rose-100',      icon:'text-rose-600',     time:'text-rose-500'     },
+                food:      { bg:'bg-rose-50/40',   border:'border-rose-100',      icon:'text-rose-600',     time:'text-rose-500'     },
+                sight:     { bg:'bg-emerald-50/40',border:'border-emerald-100',   icon:'text-emerald-700',  time:'text-emerald-600'  },
+                buy:       { bg:'bg-purple-50/40', border:'border-purple-100',    icon:'text-purple-600',   time:'text-purple-500'   },
+                booking:   { bg:'bg-cyan-50/40',   border:'border-cyan-100',      icon:'text-cyan-700',     time:'text-cyan-600'     },
+                transport: { bg:'bg-slate-50',     border:'border-slate-200',     icon:'text-slate-500',    time:'text-slate-400'    },
+                flight:    { bg:'bg-fuchsia-50/40',border:'border-fuchsia-100',   icon:'text-fuchsia-600',  time:'text-fuchsia-500'  },
+                hotel:     { bg:'bg-violet-50/40', border:'border-violet-100',    icon:'text-violet-600',   time:'text-violet-500'   },
                 story:     { bg:'bg-stone-50',     border:'border-stone-200/60',  icon:'text-stone-500',    time:'text-stone-400'    },
             };
             const c = colors[ev.type] || colors['story'];
@@ -1231,10 +1231,10 @@
 
             let noticeHtml = '';
             if (ev.notice) {
-                const isInfo = ev.notice.text.includes("無障礙") || ev.notice.text.includes("接駁") || ev.notice.text.includes("攻略");
-                const noticeClass = isInfo ? "bg-emerald-50 border-emerald-100 text-emerald-800" : "bg-amber-50 border-amber-100 text-amber-800";
-                const iconClass = isInfo ? "fa-info-circle text-emerald-500" : "fa-exclamation-triangle text-amber-500";
-                const textClass = isInfo ? "text-emerald-700" : "text-amber-800";
+                const isDanger = ev.notice.level === "danger";
+                const noticeClass = isDanger ? "bg-red-50 border-red-100 text-red-800" : "bg-amber-50 border-amber-100 text-amber-800";
+                const iconClass = isDanger ? "fa-exclamation-circle text-red-500" : "fa-exclamation-triangle text-amber-500";
+                const textClass = isDanger ? "text-red-700" : "text-amber-800";
 
                 noticeHtml = `<div class="mt-2.5 bg-white/70 rounded-xl border border-gray-100 p-3 text-[12px] text-gray-700">
                     <div class="flex items-center gap-2 mb-1.5">
