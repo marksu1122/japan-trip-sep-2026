@@ -333,7 +333,7 @@
                 </h4>
                 <ul class="text-[13px] md:text-[13.5px] text-gray-700 space-y-2.5">
                     <li><strong>Day 1：</strong>北九州機場 → 別府（東九州道，車程 1h 15m，收費約 ¥2,700）</li>
-                    <li><strong>Day 2：</strong>別府 ➔ 九重夢大吊橋（大分道，車程 50m）➔ 由布院（大分道，車程 35m）➔ 返回別府（車程 40m）</li>
+                    <li><strong>Day 2：</strong>別府 ➔ 由布院（大分道，車程 40m）➔ 九重夢大吊橋（大分道，車程 35m）➔ 返回別府（大分道，車程 50m）</li>
                     <li><strong>Day 3：</strong>別府 ➔ 大觀峰（車程 1h 20m）➔ 阿蘇火口（車程 35m）➔ 上色見熊野座神社（車程 40m）➔ 南阿蘇（車程 20m，宿南阿蘇）</li>
                     <li><strong>Day 4：</strong>南阿蘇 ➔ 高千穗峽谷一日遊（走國道 325 號，單程車程約 50 分鐘，往返 1h 40m，宿南阿蘇）</li>
                     <li><strong>Day 5：</strong>南阿蘇 ➔ 熊本城（國道 57 號，車程 1h，宿熊本）</li>
@@ -555,53 +555,59 @@
         },
         {
             date: "2026-09-27",
-            title: "九重夢大吊橋與由布院唯美散策",
+            title: "由布院唯美散策與九重夢大吊橋",
             tag: "絕景",
             weather: "☀️ 21°C",
             events: [
                 {
-                    time: "09:00", type: "transport", icon: "fas fa-car",
-                    title: "出發前往九重夢大吊橋",
-                    desc: "自別府開車出發，沿大分自動車道前往，車程約 50 分鐘。",
-                    tip: { title: "山路提醒", content: "沿途會經過部分彎曲山路，但路況良好，注意跟車距離即可。" }
+                    time: "08:30", type: "transport", icon: "fas fa-car",
+                    title: "出發前往由布院溫泉小鎮",
+                    desc: "自別府開車出發，沿大分自動車道前往由布院，車程約 40 分鐘。",
+                    notice: { icon: "fa-car", text: "週日搶位早鳥 ⏰", warning: "今天是星期日，由布院車流量與人潮極大。提早於 08:30 出發，可在 09:15 左右抵達，輕鬆停入外圍靠近金鱗湖的大型付費停車場，避開塞車！" }
                 },
                 {
-                    time: "10:00", type: "sight", icon: "fas fa-archway",
-                    title: "九重「夢」大吊橋",
-                    desc: "日本高度第一的行人專用吊橋，海拔 777 公尺，眺望震動之瀑與九重連山！",
-                    badges: [{cls:"sight", icon:"fa-star", text:"日本第一高吊橋"}],
-                    tip: { title: "吊橋攻略 🌉", content: "1. 門票：¥500。<br>2. 橋上風力強勁，帽子和隨身物品要抓牢，拍照請注意手機別掉落。<br>3. 往返步行約需 30-40 分鐘。" }
-                },
-                {
-                    time: "11:30", type: "transport", icon: "fas fa-car",
-                    title: "前往由布院溫泉小鎮",
-                    desc: "開車約 35 分鐘即可抵達由布院湯之坪街道。",
-                    notice: { icon: "fa-exclamation-triangle", text: "週日塞車注意 ⚠️", warning: "今天是星期日，由布院車流量極大，湯之坪街道主幹道很容易塞住。請直接導航至外圍大型付費停車場，切勿開進窄巷。" }
-                },
-                {
-                    time: "12:15", type: "food", icon: "fas fa-utensils",
-                    title: "午餐：由布まぶし 心 (由布院釜飯)",
-                    desc: "由布院最知名的釜飯餐廳，豊後牛釜飯是必吃絕品！",
-                    badges: [{cls:"food", icon:"fa-fire", text:"豐後牛釜飯"}],
-                    tip: { title: "釜飯三吃攻略", content: "第一吃：吃釜飯原味。第二吃：加入紅葉泥、柚子胡椒等配料拌吃。第三吃：注入秘製高湯做成茶泡飯。這家常大排長龍，建議抵達後先去登記候位。" }
-                },
-                {
-                    time: "14:00", type: "sight", icon: "fas fa-leaf",
-                    title: "湯之坪街道 & 金鱗湖散策",
-                    desc: "漫步在充滿異國童話風的湯之坪街道，並造訪清澈唯美的金鱗湖。",
+                    time: "09:30", type: "sight", icon: "fas fa-leaf",
+                    title: "由布院湯之坪街道 & 金鱗湖晨間散策",
+                    desc: "漫步在充滿異國童話風的湯之坪街道，趁著早晨遊客稀少時悠閒漫步至清澈唯美的金鱗湖，體驗平靜的晨霧美景。",
                     badges: [{cls:"sight", icon:"fa-camera", text:"由布院地標"}],
-                    tip: { title: "金鱗湖與 B-speak", content: "金鱗湖底部有溫泉湧出，水溫較高。名店 B-speak 的蛋糕卷若下午才去通常小條已售罄，可考慮直接買大條 6 人分食。" }
+                    tip: { title: "金鱗湖與 B-speak", content: "金鱗湖底部有溫泉湧出，水溫較高，早晨散步非常舒適。名店 B-speak 的招牌蛋糕捲，早上去購買最容易買到小條包裝，可買來當作下午茶！" }
                 },
                 {
-                    time: "17:00", type: "transport", icon: "fas fa-car",
-                    title: "開車返回別府",
-                    desc: "經由高原公路（山路）返回別府，車程約 40 分鐘。",
-                    notice: { icon: "fa-cloud", text: "起霧提醒", warning: "黃昏時段該路段山區易起濃霧，請慢速開車並保持車距。" }
+                    time: "10:30", type: "booking", icon: "fas fa-utensils",
+                    title: "由布まぶし 心 (由布院釜飯) ➔ 現場搶先登記",
+                    desc: "前往由布院最知名的釜飯餐廳「由布まぶし 心」（推薦金鱗湖畔店，10:30 開始營業 / 車站前店 11:00 開始營業），第一時間在店門名單登記名字排位。",
+                    badges: [{cls:"booking", icon:"fa-fire", text:"超熱門釜飯"}]
                 },
                 {
-                    time: "18:30", type: "food", icon: "fas fa-utensils",
+                    time: "11:00", type: "food", icon: "fas fa-utensils",
+                    title: "午餐：由布まぶし 心 豐後牛釜飯",
+                    desc: "開門即入座！享用招牌豐後牛釜飯、地雞釜飯，體驗經典的釜飯三吃，滿足感爆表！",
+                    badges: [{cls:"food", icon:"fa-fire", text:"豐後牛釜飯"}],
+                    tip: { title: "釜飯三吃攻略", content: "第一吃：吃釜飯原味。第二吃：加入紅葉泥、柚子胡椒等配料拌吃。第三吃：注入秘製高湯做成茶泡飯。這家常大排長龍，提早登記是唯一免排隊的秘訣！" }
+                },
+                {
+                    time: "12:30", type: "transport", icon: "fas fa-car",
+                    title: "由布院 ➔ 前往九重夢大吊橋",
+                    desc: "自由布院開車前往九重夢大吊橋，車程約 35 分鐘。",
+                    tip: { title: "山路提醒", content: "沿途路況良好，但有部分坡道與彎道，請保持安全車距。" }
+                },
+                {
+                    time: "13:10", type: "sight", icon: "fas fa-archway",
+                    title: "九重「夢」大吊橋",
+                    desc: "漫步在日本高度第一的行人專用吊橋，海拔 777 公尺，眺望震動之瀑與九重連山秋日絕景！",
+                    badges: [{cls:"sight", icon:"fa-star", text:"日本第一高吊橋"}],
+                    tip: { title: "吊橋攻略 🌉", content: "1. 門票：¥500。<br>2. 橋上風力強勁，帽子和隨身物品要抓牢，拍照請注意手機別掉落。<br>3. 往返步行約需 30-40 分鐘。長輩若恐高可在入口觀景台及販賣部休息。" }
+                },
+                {
+                    time: "15:00", type: "transport", icon: "fas fa-car",
+                    title: "九重夢大吊橋 ➔ 返回別府飯店",
+                    desc: "開車返回別府市區飯店，車程約 50 分鐘。下午 16:00 前抵達別府，時間非常充裕！",
+                    notice: { icon: "fa-hot-tub", text: "長輩休憩防線", warning: "提早於 16:00 回到別府飯店，長輩可以泡溫泉並充分休息，避免連日拉車疲勞。" }
+                },
+                {
+                    time: "18:00", type: "food", icon: "fas fa-utensils",
                     title: "晚餐：別府名物冷麵 / 豐後牛燒肉",
-                    desc: "回別府享用名物冷麵（推薦：胡月或六盛），或吃高 CP 值的豐後牛燒肉。",
+                    desc: "在別府享用名物冷麵（推薦：胡月或六盛），或享用高 CP 值的在地豐後牛燒肉。",
                     badges: [{cls:"food", icon:"fa-star", text:"別府美食"}]
                 }
             ]
