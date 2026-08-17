@@ -337,7 +337,7 @@
                     <li><strong>Day 3：</strong>別府 ➔ 大觀峰（車程 1h 20m）➔ 阿蘇火口（車程 35m）➔ 南阿蘇飯店（車程 30m，宿南阿蘇）</li>
                     <li><strong>Day 4：</strong>南阿蘇 ➔ 高千穗峽谷一日遊（走國道 325 號，單程車程約 50 分鐘，往返 1h 40m，宿南阿蘇）</li>
                     <li><strong>Day 5：</strong>南阿蘇 ➔ 上色見熊野座神社（車程 20m）➔ 熊本城（車程 1h 15m，宿熊本）</li>
-                    <li><strong>Day 6：</strong>熊本 ➔ 柳川（九州道，車程 1h）➔ 太宰府（車程 45m）➔ 福岡市區（車程 30m，<b>16:30前還車</b>）</li>
+                    <li><strong>Day 6：</strong>熊本 ➔ 太宰府天滿宮（車程 1h 10m）➔ 福岡市區還車（車程 35m，<b>16:30前順暢還車</b>，宿福岡）</li>
                     <li><strong>Day 7-8：</strong>福岡市區（不開車，搭配地下鐵/計程車舒適移動，宿福岡）</li>
                     <li><strong>Day 9：</strong>福岡 ➔ 小倉與門司港一日遊（大眾運輸：搭特急 Sonic/新幹線、門司港 local 線，晚間搭機場巴士至北九州機場歸國）</li>
                 </ul>
@@ -822,50 +822,53 @@
                 }
             ]
         },
-        {
+                {
             date: "2026-10-01",
-            title: "柳川遊船、蒲燒鰻魚與太宰府美學",
-            tag: "水鄉",
+            title: "太宰府美學漫遊、限定漂浮森林與順暢還車",
+            tag: "古都",
             weather: "⛅ 24°C",
             events: [
                 {
-                    time: "08:30", type: "transport", icon: "fas fa-car",
-                    title: "熊本 ➔ 柳川 (車程約 1 小時)",
-                    desc: "沿著九州自動車道往北行駛，前往水鄉柳川。",
-                    tip: { title: "路況提醒", content: "此段路為平地高速公路，路況非常簡單順暢。" }
+                    time: "09:30", type: "transport", icon: "fas fa-car",
+                    title: "熊本 ➔ 太宰府天滿宮 (車程約 1h 10m)",
+                    desc: "早上在熊本飯店從容享用早餐後退房出發，沿著九州自動車道往北直奔太宰府，路況平順好開。",
+                    tip: { title: "悠閒步調", content: "捨棄較趕的柳川行程後，今天動線極度寬鬆從容，完全沒有趕車壓力！" }
                 },
                 {
-                    time: "09:45", type: "sight", icon: "fas fa-ship",
-                    title: "柳川搖船體驗 (川下り)",
-                    desc: "乘坐木造小舟，由船夫撐船穿過垂柳與老水路，體會水鄉風情！",
-                    badges: [{cls:"sight", icon:"fa-ship", text:"水鄉泛舟"}],
-                    notice: { icon: "fa-exclamation-triangle", text: "長輩膝蓋提醒 ⚠️", warning: "一般柳川遊船是讓旅客直接「坐在船底板（榻榻米）」上，乘船時間長達 70 分鐘，膝蓋不好的長輩起身與盤腿會極度痛苦！" },
-                    tip: { title: "長輩搭船攻略 🛶", content: "1. 買票時，務必向船家要求選擇「**設有座椅/小椅子的船隻**」（部分船公司如大東、松川有提供帶長凳或椅子的船）。<br>2. 6人同行非常推薦直接包船，可以跟船夫要求更舒適的坐姿與照應。<br>3. 船上無遮蔽，記得幫長輩準備防曬帽或洋傘。" }
+                    time: "10:45", type: "sight", icon: "fas fa-torii-gate",
+                    title: "太宰府天滿宮 ＆ 漂浮森林假殿 ⛩️",
+                    desc: "造訪祭祀學問之神菅原道真的總本社。國寶本殿正進行百年大修，現場特別建起了由世界建築大師藤本壯介設計的「漂浮森林假殿」(Kari-honden)，屋頂上繁茂綠意昂然，是 125 年才一次的世紀限定奇景！",
+                    badges: [{cls:"sight", icon:"fa-star", text:"世紀限定假殿"}],
+                    tip: { title: "參道名物", content: "參道散步時一定要品嚐現烤溫熱的「梅枝餅」，並打卡由建築大師隈研吾用 2000 根木條交織設計的超人氣星巴克太宰府表參道店！" }
                 },
                 {
-                    time: "11:30", type: "food", icon: "fas fa-utensils",
-                    title: "午餐：元祖本吉屋 蒸籠鰻魚飯",
-                    desc: "創業超過300年的超級老店！將烤得金黃的蒲燒鰻魚與醬汁飯放入竹籠蒸熟，米飯吸飽油脂與醬香！",
-                    badges: [{cls:"food", icon:"fa-star", text:"300年鰻魚飯老店"}],
-                    notice: { icon: "fa-clock", text: "排隊大考驗", warning: "名店在午餐時段排隊是常態。下船後請迅速前往，或請司機先開車去店門口登記放人下車排隊。" }
+                    time: "12:30", type: "food", icon: "fas fa-utensils",
+                    title: "午餐：太宰府表參道美食 🍱",
+                    desc: "在表參道享用太宰府限定的八角形五角合格碗「一蘭拉麵」、傳統手打蕎麥麵或日式定食套餐。",
+                    badges: [{cls:"food", icon:"fa-star", text:"太宰府在地美食"}]
                 },
                 {
-                    time: "13:30", type: "transport", icon: "fas fa-car",
-                    title: "柳川 ➔ 太宰府天滿宮",
-                    desc: "開車約 45 分鐘即可抵達太宰府市區。",
-                    tip: { title: "停車指引", content: "建議使用太宰府天滿宮後方的市營大型停車場，車位多且收費合理。" }
+                    time: "13:40", type: "sight", icon: "fas fa-university",
+                    title: "九州國立博物館 或 參道古風茶屋 抹茶小憩 🍵",
+                    desc: "經由天滿宮後方的無障礙電梯與彩色琉璃光廊，參觀宏偉的九州國立博物館（全室內冷氣、展覽極具水準）；或在古風茶屋悠閒喝抹茶配日式點心。",
+                    badges: [{cls:"sight", icon:"fa-landmark", text:"室內美學散策"}]
                 },
                 {
-                    time: "14:15", type: "sight", icon: "fas fa-torii-gate",
-                    title: "太宰府天滿宮 & 隈研吾星巴克",
-                    desc: "祭祀學問之神菅原道真的總本社。參道上的星巴克由大師隈研吾設計，用 2000 根木條交織而成，是著名地標！",
-                    badges: [{cls:"sight", icon:"fa-star", text:"學問之神"}],
-                    tip: { title: "整修中特別看點", content: "天滿宮御本殿目前正進行百年大修。但現場建起了一座<b>「臨時本殿」(Kari-honden)</b>，屋頂上種植了一片森林，設計感極強，反而是這幾年才能看到的限定奇景！" }
+                    time: "15:15", type: "transport", icon: "fas fa-car",
+                    title: "太宰府 ➔ 福岡市區還車處 (車程 35 分鐘)",
+                    desc: "開車前往福岡市區的租車據點，準備歸還租賃車輛。",
+                    tip: { title: "加油提醒", content: "還車前請在租車公司指定的加油站將油箱加滿（滿油還車）。" }
                 },
                 {
-                    time: "16:30", type: "transport", icon: "fas fa-car",
-                    title: "太宰府 ➔ 福岡天神/博多",
-                    desc: "開車約 30 分鐘，抵達福岡市區飯店 Check-in。",
+                    time: "16:00", type: "car", icon: "fas fa-key",
+                    title: "福岡市區 順利歸還車輛 🚗",
+                    desc: "在預訂的 16:30 截止期限前極度充裕地辦理還車手續，結束舒適安心的 6 天自駕旅程！",
+                    badges: [{cls:"booking", icon:"fa-car", text:"自駕順利完成"}]
+                },
+                {
+                    time: "16:40", type: "hotel", icon: "fas fa-hotel",
+                    title: "福岡市區飯店 Check-in",
+                    desc: "搭計程車或步行前往福岡飯店辦理入住放行李，展開後半段大眾運輸便利之旅。",
                     badges: [{cls:"booking", icon:"fa-hotel", text:"宿福岡博多"}]
                 }
             ]
