@@ -497,83 +497,69 @@
     // ===         行程資料                    ===
     // ==========================================
     const itineraryData = [
-        {
+                {
             date: "2026-09-26",
-            title: "別府地獄、地獄博物館 & 鶴見岳纜車",
+            title: "別府地獄蒸、溫泉巡禮、鶴見岳纜車與鮮魚壽司",
             tag: "啟程",
             weather: "⛅ 22°C",
             events: [
                 {
-                    time: "06:20", type: "flight", icon: "fas fa-plane-arrival",
-                    title: "抵達北九州機場 (KKJ)",
-                    desc: "搭乘星悅航空紅眼航班抵達，過關提領行李，前往取車。",
-                    badges: [{cls:"booking", icon:"fa-plane", text:"星悅航空入境"}],
-                    notice: { icon: "fa-exclamation-triangle", text: "紅眼疲勞提醒", warning: "03:00台北起飛，降落時體力較差。開車前往別府（約1小時15分）請主副駕駛務必互相提神，注意安全！" }
+                    time: "08:30", type: "booking", icon: "fas fa-key",
+                    title: "福岡市區租車取車出發 🚗",
+                    desc: "在福岡市區租車據點核對駕照譯本與護照，領取 7/8 人座車輛、租用 ETC 卡並確認保險後出發。",
+                    badges: [{cls:"booking", icon:"fa-key", text:"福岡自駕啟程"}],
+                    tip: { title: "國道駕駛提示", content: "沿九州自動車道與大分自動車道往東行駛（車程約 1h 45m ~ 2h），路況非常平順好開。" }
                 },
                 {
-                    time: "07:30", type: "booking", icon: "fas fa-key",
-                    title: "北九州機場租車取車 🚗",
-                    desc: "核對日文駕照譯本、台灣駕照正本與護照，租用 ETC 卡、確認加滿保險。",
-                    badges: [{cls:"booking", icon:"fa-key", text:"8人座大車"}],
-                    tip: { title: "自駕取車小撇步", content: "星悅抵達時間極早，租車公司櫃檯可能剛開門。6人行李很多，務必在取車時仔細確認後車廂行李堆疊空間是否安全，勿擋住後照鏡視線。" }
+                    time: "10:45", type: "food", icon: "fas fa-fire",
+                    title: "午餐：別府地獄蒸工房鐵輪 (溫泉蒸氣DIY) ♨️",
+                    desc: "約 10:30~10:45 抵達別府鐵輪溫泉區。卡在第一波熱潮前租用蒸籠，體驗將新鮮海鮮、黑豬肉、高麗菜放入 100℃ 天然地獄溫泉蒸氣蒸熟，享用極致原汁原味！",
+                    badges: [{cls:"food", icon:"fa-star", text:"溫泉蒸氣特產午餐"}],
+                    tip: { title: "避開排隊黃金時間", content: "10:45 抵達剛好避開 11:30 後的恐怖排隊人潮。食材天然不油膩，極合長輩口味！" }
                 },
                 {
-                    time: "10:00", type: "sight", icon: "fas fa-museum",
-                    title: "地獄溫泉博物館 & 鬼石坊主地獄 ♨️",
-                    desc: "2022年底開幕的互動博物館，以雨水化為溫泉的50年旅程為主題。參觀後步行至隔壁的「鬼石坊主地獄」，欣賞沸騰灰色泥漿如和尚光頭（坊主）般冒泡的獨特奇景與溫泉足湯。",
-                    badges: [{cls:"sight", icon:"fa-university", text:"博物館＋泥地獄"}],
-                    tip: { title: "門票超省錢攻略 🎫", content: "推薦在 Klook、asoview! 或現場購買<b>「三景點套票 (地獄溫泉博物館＋海地獄＋鬼石坊主地獄)」</b>（售價約 ¥1,800 - ¥2,000）。這比起分開單買能省下大筆費用，且三個設施緊鄰，走路 1 分鐘即達！" }
+                    time: "12:00", type: "sight", icon: "fas fa-museum",
+                    title: "地獄溫泉博物館 ＆ 地獄巡禮 (海地獄/鬼石坊主/灶地獄)",
+                    desc: "參觀 2022 年底開幕的地獄溫泉博物館，隨後步行遊覽鄰近的「海地獄」（蒂芙尼藍池）與「鬼石坊主地獄」（灰色泥漿泡泡），並前往「灶地獄」觀看吹煙秀與品嚐溫泉醬油布丁。",
+                    badges: [{cls:"sight", icon:"fa-university", text:"博物館＋經典地獄"}],
+                    tip: { title: "門票省錢攻略 🎫", content: "購買「三景點套票（博物館＋海地獄＋鬼石坊主）」最划算，灶地獄則在現場單買門票 (¥450)。" }
                 },
                 {
-                    time: "11:30", type: "food", icon: "fas fa-utensils",
-                    title: "午餐：龜正くるくる壽司 或 水天壽司 🍣",
-                    desc: "品嚐別府最頂級與在地超人氣的迴轉壽司！「龜正」以每日漁港直送、超厚切新鮮魚介聞名；「水天」則走精緻質感路線，食材與用餐環境皆具備極高水準。",
-                    badges: [{cls:"food", icon:"fa-star", text:"在地超人氣壽司"}],
-                    notice: { icon: "fa-exclamation-triangle", text: "排隊與備案提醒 ⚠️", warning: "「龜正」是超熱門排隊名店且無法預約（週六中午排隊常達 1-2 小時）。若人潮過多，強烈建議直接改前往車程 5 分鐘的「水天壽司 (石垣店)」，水天空間寬敞、環境清幽，對長輩也更友善！" }
-                },
-                {
-                    time: "13:30", type: "sight", icon: "fas fa-eye",
-                    title: "別府地獄巡禮（海地獄 & 灶地獄）",
-                    desc: "使用套票參觀相鄰的蒂芙尼藍「海地獄」（大鬼蓮溫室）；接著步行 3 分鐘前往最具互動樂趣的「灶地獄 (かまど地獄)」（此處需現場單買門票 ¥450），觀看吹煙沸騰秀並體驗飲泉！",
-                    badges: [{cls:"sight", icon:"fa-map-marker-alt", text:"經典地獄"}, {cls:"food", icon:"fa-mug-hot", text:"溫泉蛋與布丁"}],
-                    tip: { title: "灶地獄美食與足湯 🥚", content: "1. 灶地獄內設有免費足湯，非常適合長輩坐著放鬆、消除紅眼班機疲勞。<br>2. <b>必吃名物</b>：用溫泉蒸氣蒸熟的溫泉蛋（沾柚子胡椒醬油）以及特製溫泉醬油布丁（微鹹焦糖風味），是別府最代表性的點心！<br>3. <b>門票使用說明</b>：海地獄直接出示「三景點套票」入場；灶地獄則在售票處現場單買門票 (¥450)。這樣搭配最省錢！" }
-                },
-                {
-                    time: "14:45", type: "transport", icon: "fas fa-car",
-                    title: "鐵輪地獄 ➔ 柴石血之池地獄",
-                    desc: "開車前往東北方的柴石溫泉區，車程約 8-10 分鐘。"
-                },
-                {
-                    time: "14:55", type: "sight", icon: "fas fa-eye",
+                    time: "14:15", type: "sight", icon: "fas fa-eye",
                     title: "別府地獄巡禮：血之池地獄 (血の池地獄)",
-                    desc: "日本最古老的天然地獄！以含有氧化鐵、氧化鎂的紅色熱泥泉聞名，整片紅如血海，極具視覺衝擊力！",
-                    badges: [{cls:"sight", icon:"fa-map-marker-alt", text:"日本最古老地獄"}],
-                    tip: { title: "血之池名物 🔴", content: "這裡的軟膏「血ノ池軟膏」是用池底紅泥製成，據說對皮膚炎、青春痘很有效，是別府超高人氣的特產手信！" }
+                    desc: "開車 8 分鐘前往日本最古老的天然地獄，欣賞整片紅如血海的氧化鐵泥泉奇景，並採購名物「血之池軟膏」。",
+                    badges: [{cls:"sight", icon:"fa-map-marker-alt", text:"日本最古老地獄"}]
                 },
                 {
-                    time: "15:35", type: "transport", icon: "fas fa-car",
-                    title: "血之池地獄 ➔ 鶴見岳纜車",
-                    desc: "開車經別府外圍道路前往鶴見岳纜車站，車程約 20 分鐘。"
+                    time: "14:50", type: "hotel", icon: "fas fa-hot-tub",
+                    title: "別府溫泉飯店 先行 Check-in ＆ 寄放行李 🏨",
+                    desc: "在前往纜車前，先開車至別府溫泉飯店辦理入住或寄放行李，讓長輩喝水休息、卸下負擔。",
+                    badges: [{cls:"booking", icon:"fa-hotel", text:"先行Check-in"}]
                 },
                 {
-                    time: "15:55", type: "sight", icon: "fas fa-mountain",
-                    title: "別府鶴見岳纜車 (別府ロープウェイ)",
-                    desc: "搭乘九州最大級的纜車上到海拔 1375 公尺的鶴見岳頂，俯瞰別府灣全景！",
+                    time: "15:40", type: "sight", icon: "fas fa-mountain",
+                    title: "別府鶴見岳纜車 (別府ロープウェイ) 🚠",
+                    desc: "搭乘九州最大級的纜車登上海拔 1375 公尺的鶴見岳頂，360 度俯瞰別府灣與四季壯麗山景！",
                     badges: [{cls:"sight", icon:"fa-mountain", text:"絕景纜車"}],
-                    tip: { title: "鶴見岳攻略", content: "1. 纜車來回票約 ¥1,800，每 20 分鐘一班車，單程 10 分鐘。<br>2. <b>山上氣溫較平地低約 8-10°C</b>，秋天下午風大，務必攜帶防風保暖外套上去！" }
+                    tip: { title: "保暖提醒", content: "山上氣溫比平地低約 8-10°C，秋季下午風大，請幫長輩準備防風保暖外套。" }
                 },
                 {
-                    time: "17:30", type: "hotel", icon: "fas fa-hot-tub",
-                    title: "別府溫泉飯店 Check-in & 休憩 ♨️",
-                    desc: "先前往別府溫泉飯店辦理入住，將行李放進房間，讓長輩稍微休息、泡個溫泉舒緩紅眼班機的疲勞。",
+                    time: "17:15", type: "food", icon: "fas fa-ticket-alt",
+                    title: "龜正くるくる壽司 抽號碼牌 🎫",
+                    desc: "纜車下山後開車 15 分鐘前往「龜正壽司」現場抽取晚餐號碼牌，現場等待卡位。",
+                    notice: { icon: "fa-info-circle", text: "備案店家 🍣", warning: "若龜正等待時間過長，直接改前往車程 5 分鐘的「水天壽司 (石垣店)」，水天環境質感高、空間寬敞，對長輩極為友善。" }
+                },
+                {
+                    time: "17:45", type: "food", icon: "fas fa-utensils",
+                    title: "晚餐：龜正くるくる壽司 或 水天壽司 🍣",
+                    desc: "享用別府在地最知名的鮮魚壽司！「龜正」以漁港直送超厚切鮮魚聞名；「水天」則提供極緻質感的和風壽司饗宴。",
+                    badges: [{cls:"food", icon:"fa-star", text:"別府頂級壽司"}]
+                },
+                {
+                    time: "19:15", type: "hotel", icon: "fas fa-home",
+                    title: "返回別府溫泉飯店 泡湯放鬆 ♨️",
+                    desc: "吃飽後返回飯店，享受著名的別府天然溫泉，舒緩第一天的乘車疲勞。",
                     badges: [{cls:"booking", icon:"fa-hotel", text:"宿別府溫泉"}]
-                },
-                {
-                    time: "18:45", type: "food", icon: "fas fa-utensils",
-                    title: "晚餐：天丼 とよ常 (別府本店) 🍤",
-                    desc: "享用別府近百年歷史的超人氣名店「とよ常」！必點招牌特製天丼（酥脆炸蝦天婦羅蓋飯），搭配甘甜的秘製醬汁，美味無比。",
-                    badges: [{cls:"food", icon:"fa-star", text:"百年老店天丼"}],
-                    tip: { title: "推薦點法 💡", content: "1. 本店備有專屬停車場，若客滿可停鄰近收費停車場。<br>2. <b>必吃推薦</b>：除了特製天丼，他們的「地雞飯」（とり飯）與生魚片拼盤也很符合長輩口味！" }
                 }
             ]
         },
