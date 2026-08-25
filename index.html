@@ -557,68 +557,79 @@
                 }
             ]
         },
-        {
+                {
             date: "2026-09-27",
             title: "由布院唯美散策與九重夢大吊橋",
             tag: "絕景",
             weather: "☀️ 21°C",
             events: [
                 {
-                    time: "08:30", type: "transport", icon: "fas fa-car",
-                    title: "出發前往由布院溫泉小鎮",
-                    desc: "自別府開車出發，沿大分自動車道前往由布院，車程約 40 分鐘。",
-                    notice: { icon: "fa-car", text: "週日搶位早鳥 ⏰", warning: "今天是星期日，由布院車流量與人潮極大。提早於 08:30 出發，可在 09:15 左右抵達，輕鬆停入外圍靠近金鱗湖的大型付費停車場，避開塞車！" }
+                    time: "09:00", type: "transport", icon: "fas fa-car",
+                    title: "別府飯店出發 ➔ 前往由布院 (連住不退房)",
+                    desc: "早上 09:00 自別府飯店出發（連住第二晚，不用退房放鬆出門），開車約 35-40 分鐘前往由布院。",
+                    tip: { title: "週日搶位攻略 ⏰", content: "今天是星期日，由布院車流極大。直接開車前往最裡面的『金鱗湖 岳本駐車場』，避開由布院車站塞車路段！" }
                 },
                 {
-                    time: "09:30", type: "sight", icon: "fas fa-leaf",
-                    title: "由布院湯之坪街道 & 金鱗湖晨間散策",
-                    desc: "漫步在充滿異國童話風的湯之坪街道，趁著早晨遊客稀少時悠閒漫步至清澈唯美的金鱗湖，體驗平靜的晨霧美景。",
+                    time: "09:45", type: "sight", icon: "fas fa-leaf",
+                    title: "由布院金鱗湖 晨間散策 ♨️",
+                    desc: "趁著大批遊客湧入前抵達金鱗湖。湖底有溫泉湧出、湖面煙霧繚繞，沿湖步道極平坦，非常適合晨間散步。",
                     badges: [{cls:"sight", icon:"fa-camera", text:"由布院地標"}],
-                    tip: { title: "金鱗湖與 B-speak", content: "金鱗湖底部有溫泉湧出，水溫較高，早晨散步非常舒適。名店 B-speak 的招牌蛋糕捲，早上去購買最容易買到小條包裝，可買來當作下午茶！" }
+                    notice: { icon: "fa-parking", text: "停車場資訊 🅿️", warning: "🎯 <b>導航定位：『金鱗湖 岳本駐車場』</b><br>• <b>費用</b>：單次停放僅約 ¥500（次計費，不限時）<br>• <b>優勢</b>：距離金鱗湖僅 1 分鐘、距離心釜飯僅 2 分鐘，是距離金鱗湖最近且最省錢高 CP 值的停車場！" }
                 },
                 {
                     time: "10:30", type: "booking", icon: "fas fa-utensils",
-                    title: "由布まぶし 心 (由布院釜飯) ➔ 現場搶先登記",
-                    desc: "前往由布院最知名的釜飯餐廳「由布まぶし 心」（推薦金鱗湖畔店，10:30 開始營業 / 車站前店 11:00 開始營業），第一時間在店門名單登記名字排位。",
+                    title: "由布まぶし 心 (金鱗湖店) ➔ 現場搶先登記名字",
+                    desc: "在 10:30 開門前，先前往金鱗湖側邊的『由布まぶし 心 (金鱗湖店)』門口名單填寫名字登記排位。",
                     badges: [{cls:"booking", icon:"fa-fire", text:"超熱門釜飯"}]
                 },
                 {
                     time: "11:00", type: "food", icon: "fas fa-utensils",
-                    title: "午餐：由布まぶし 心 豐後牛釜飯",
-                    desc: "開門即入座！享用招牌豐後牛釜飯、地雞釜飯，體驗經典的釜飯三吃，滿足感爆表！",
-                    badges: [{cls:"food", icon:"fa-fire", text:"豐後牛釜飯"}],
-                    tip: { title: "釜飯三吃攻略", content: "第一吃：吃釜飯原味。第二吃：加入紅葉泥、柚子胡椒等配料拌吃。第三吃：注入秘製高湯做成茶泡飯。這家常大排長龍，提早登記是唯一免排隊的秘訣！" }
+                    title: "午餐：由布まぶし 心 豐後牛釜飯 🍲",
+                    desc: "開門第一波入座！享用招牌豐後牛釜飯與地雞釜飯，體驗經典的釜飯三吃（原味 ➔ 拌柚子胡椒 ➔ 注入高湯做茶泡飯）！",
+                    badges: [{cls:"food", icon:"fa-fire", text:"豐後牛釜飯"}]
                 },
                 {
-                    time: "12:30", type: "transport", icon: "fas fa-car",
-                    title: "由布院 ➔ 前往九重夢大吊橋",
-                    desc: "自由布院開車前往九重夢大吊橋，車程約 35 分鐘。",
-                    tip: { title: "山路提醒", content: "沿途路況良好，但有部分坡道與彎道，請保持安全車距。" }
+                    time: "12:30", type: "sight", icon: "fas fa-store",
+                    title: "湯之坪童話街道 散策 🍦",
+                    desc: "漫步在充滿歐風童話小屋的湯之坪街道，採購名物 B-speak 蛋糕捲、醬油仙貝與各類日式手作小物品。",
+                    badges: [{cls:"sight", icon:"fa-shopping-bag", text:"湯之坪老街"}]
                 },
                 {
-                    time: "13:10", type: "sight", icon: "fas fa-archway",
-                    title: "九重「夢」大吊橋",
-                    desc: "漫步在日本高度第一的行人專用吊橋，海拔 777 公尺，眺望震動之瀑與九重連山秋日絕景！",
+                    time: "14:00", type: "transport", icon: "fas fa-car",
+                    title: "由布院 ➔ 九重「夢」大吊橋 (車程 35 分鐘)",
+                    desc: "開車避開由布院下午離場車潮，往山上前往九重町。",
+                    tip: { title: "山路提醒", content: "沿途路況良好，坡道平緩，視野非常開闊。" }
+                },
+                {
+                    time: "14:40", type: "sight", icon: "fas fa-archway",
+                    title: "下午景點：九重「夢」大吊橋 🌉",
+                    desc: "漫步在日本高度第一的行人專用吊橋（海拔 777 公尺），360 度眺望震動之瀑與九重連山秋日絕景！",
                     badges: [{cls:"sight", icon:"fa-star", text:"日本第一高吊橋"}],
-                    tip: { title: "吊橋攻略 🌉", content: "1. 門票：¥500。<br>2. 橋上風力強勁，帽子和隨身物品要抓牢，拍照請注意手機別掉落。<br>3. 往返步行約需 30-40 分鐘。長輩若恐高可在入口觀景台及販賣部休息。" }
+                    notice: { icon: "fa-parking", text: "免費停車資訊 🅿️", warning: "🎯 <b>導航定位：『九重夢大吊橋 中村口免費駐車場』</b><br>• <b>費用</b>：完全免費（¥0，220 個車位）<br>• <b>優勢</b>：停車場就在購票處與吊橋入口正前方，設有大型洗手間與賣店，下車直接平路入場，零階梯。" }
                 },
                 {
-                    time: "15:00", type: "transport", icon: "fas fa-car",
-                    title: "九重夢大吊橋 ➔ 返回別府飯店",
-                    desc: "開車返回別府市區飯店，車程約 50 分鐘。下午 16:00 前抵達別府，時間非常充裕！",
-                    notice: { icon: "fa-hot-tub", text: "長輩休憩防線", warning: "提早於 16:00 回到別府飯店，長輩可以泡溫泉並充分休息，避免連日拉車疲勞。" }
-                },                  {
-                      time: "17:15", type: "food", icon: "fas fa-ticket-alt",
-                      title: "龜正くるくる壽司 抽號碼牌 🎫",
-                      desc: "由布院開車返回別府市區後，直接前往「龜正壽司」現場抽取晚餐號碼牌，現場等待卡位。",
-                      notice: { icon: "fa-info-circle", text: "備案店家 🍣", warning: "若龜正等待時間過長，直接改前往車程 5 分鐘的「水天壽司 (石垣店)」，水天環境質感高、空間寬敞，對長輩極為友善。" }
-                  },
-                  {
-                      time: "17:45", type: "food", icon: "fas fa-utensils",
-                      title: "晚餐：龜正くるくる壽司 或 水天壽司 🍣",
-                      desc: "享用別府在地最知名的鮮魚壽司！「龜正」以漁港直送超厚切鮮魚聞名；「水天」則提供極緻質感的和風壽司饗宴。",
-                      badges: [{cls:"food", icon:"fa-star", text:"別府頂級壽司"}]
-                  }
+                    time: "15:40", type: "transport", icon: "fas fa-car",
+                    title: "九重夢大吊橋 ➔ 返回別府市區 (車程 50 分鐘)",
+                    desc: "開車返回別府市區，準備享用鮮魚壽司晚餐。"
+                },
+                {
+                    time: "17:15", type: "food", icon: "fas fa-ticket-alt",
+                    title: "龜正くるくる壽司 抽號碼牌 🎫",
+                    desc: "由布院開車返回別府市區後，直接前往『龜正壽司』現場抽取晚餐號碼牌，現場等待卡位。",
+                    notice: { icon: "fa-info-circle", text: "備案店家 🍣", warning: "若龜正等待時間過長，直接改前往車程 5 分鐘的『水天壽司 (石垣店)』，水天環境質感高、空間寬敞，對長輩極為友善。" }
+                },
+                {
+                    time: "17:45", type: "food", icon: "fas fa-utensils",
+                    title: "晚餐：龜正くるくる壽司 或 水天壽司 🍣",
+                    desc: "享用別府在地最知名的鮮魚壽司！『龜正』以漁港直送超厚切鮮魚聞名；『水天』則提供極緻質感的和風壽司饗宴。",
+                    badges: [{cls:"food", icon:"fa-star", text:"別府頂級壽司"}]
+                },
+                {
+                    time: "19:00", type: "hotel", icon: "fas fa-home",
+                    title: "返回別府溫泉飯店 泡湯放鬆 ♨️",
+                    desc: "吃飽後返回飯店，享受著名的別府天然溫泉，舒緩一日散步的疲勞。",
+                    badges: [{cls:"booking", icon:"fa-hotel", text:"宿別府溫泉"}]
+                }
             ]
         },
         {
