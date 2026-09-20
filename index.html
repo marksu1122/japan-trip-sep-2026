@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
@@ -182,7 +182,7 @@
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="flex flex-wrap items-center gap-2 mb-1 md:mb-2">
-                            <span class="inline-block bg-[#2d3748] text-white text-[10px] md:text-[11px] px-2.5 py-0.5 rounded-full tracking-wider font-medium" id="card-tag">城市</span>
+                            <span class='inline-block bg-[#2d3748] text-white text-[10px] md:text-[11px] px-2.5 py-0.5 rounded-full tracking-wider font-medium" id="card-tag">城市</span>
                             <div class="inline-flex items-center gap-1.5 bg-orange-50 text-orange-600 text-[10px] md:text-[11px] px-2.5 py-0.5 rounded-full border border-orange-100 font-medium whitespace-nowrap" id="card-weather"></div>
                         </div>
                         <h2 class="text-[1.15rem] md:text-[1.75rem] font-serif-tc font-bold text-gray-800 leading-snug tracking-wide truncate md:whitespace-normal" id="card-title">載入中...</h2>
@@ -232,7 +232,7 @@
                             </div>
                         </div>
                         <div class="mt-4 pt-2 border-t border-blue-100/50 flex gap-2">
-                            <a href="#" target="_blank" class="flex-1 text-center text-[11px] bg-white border border-blue-200 text-blue-600 hover:bg-blue-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
+                            <a href="#" target='_blank' class="flex-1 text-center text-[11px] bg-white border border-blue-200 text-blue-600 hover:bg-blue-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
                         </div>
                     </div>
 
@@ -253,7 +253,7 @@
                             </div>
                         </div>
                         <div class="mt-4 pt-2 border-t border-emerald-100/50 flex gap-2">
-                            <a href="#" target="_blank" class="flex-1 text-center text-[11px] bg-white border border-emerald-200 text-emerald-600 hover:bg-emerald-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
+                            <a href="#" target='_blank' class="flex-1 text-center text-[11px] bg-white border border-emerald-200 text-emerald-600 hover:bg-emerald-50 py-1 rounded shadow-sm transition-colors font-bold"><i class="fas fa-file-pdf mr-1"></i> 機票憑證</a>
                         </div>
                     </div>
                 </div>
@@ -434,7 +434,7 @@
                     <i class="fas fa-cloud-sun text-yellow-500"></i> 9-10 月北九州氣候與穿著建議
                 </h3>
                 <div class="overflow-x-auto rounded-xl border border-gray-200">
-                    <table class="w-full text-[13px] text-left bg-white">
+                    <table class='w-full text-[13px] text-left bg-white">
                         <thead class="bg-gray-50 text-gray-700 border-b">
                             <tr>
                                 <th class="p-3 font-bold">地區</th>
@@ -913,7 +913,7 @@
                     title: "天神地下街 ── 歐風輕鬆逛街避暑 🛍️",
                     desc: "吃飽後往西走進入天神地下街。整條地下街約 600 公尺完全平坦、零階梯，且冷氣極涼，適合飯後純散步或採買藥妝服飾。",
                     badges: [{cls:"buy", icon:"fa-shopping-bag", text:"零階梯無障礙"}],
-                    tip: { title: "散步體驗 🚶‍♂️", content: "沿著 19 世紀歐洲風情的石疊街道散步，長輩想買的貼布或保健食品可直接在這裡的連鎖大藥妝店搞定。<br><br><img src="tenjin_map.png" class="w-full rounded-lg border border-gray-200 mt-2 mb-3"><a href="tenjin.html" target="_blank" class="inline-block w-full text-center bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-700 transition-colors"><i class="fas fa-external-link-alt mr-1"></i> 查看完整天神逛街攻略地圖</a>" }
+                    tip: { title: "散步體驗 🚶‍♂️", content: "沿著 19 世紀歐洲風情的石疊街道散步，長輩想買的貼布或保健食品可直接在這裡的連鎖大藥妝店搞定。<br><br><img src='tenjin_map.png' class='w-full rounded-lg border border-gray-200 mt-2 mb-3"><a href='tenjin.html' target='_blank' class='inline-block w-full text-center bg-blue-600 text-white font-bold py-2 rounded-lg hover:bg-blue-700 transition-colors"><i class='fas fa-external-link-alt mr-1'></i> 查看完整天神逛街攻略地圖</a>" }
                 },
                 {
                     time: "13:00", type: "sight", icon: "fas fa-torii-gate",
@@ -1265,9 +1265,9 @@
         function setWeatherUI(emoji, min, max, desc, isRealtime) {
             const tenkiUrl = coords.tenkiUrl || 'https://tenki.jp/';
             if (isRealtime) {
-                weatherEl.innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${emoji} ${min}°C~${max}°C (${desc} 預報) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+                weatherEl.innerHTML = `<a href="${tenkiUrl}" target='_blank' class="hover:underline flex items-center gap-1">${emoji} ${min}°C~${max}°C (${desc} 預報) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
             } else {
-                weatherEl.innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${emoji} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+                weatherEl.innerHTML = `<a href="${tenkiUrl}" target='_blank' class="hover:underline flex items-center gap-1">${emoji} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
             }
         }
         if (weatherCache[idx]) {
@@ -1308,7 +1308,7 @@
 
         const coords = dayCoordinates[idx];
         const tenkiUrl = coords ? coords.tenkiUrl : 'https://tenki.jp/';
-        document.getElementById('card-weather').innerHTML = `<a href="${tenkiUrl}" target="_blank" class="hover:underline flex items-center gap-1">${day.weather} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
+        document.getElementById('card-weather').innerHTML = `<a href="${tenkiUrl}" target='_blank' class="hover:underline flex items-center gap-1">${day.weather} (歷史均溫) <i class="fas fa-external-link-alt text-[9px] opacity-70"></i></a>`;
         document.getElementById('card-title').textContent = day.title;
 
         updateWeatherRealtime(day.date, idx);
@@ -1366,7 +1366,7 @@
             if (ev.tip) {
                 const tipId = 'tip-' + Math.random().toString(36).substr(2,9);
                 tipHtml = `<div class="mt-2.5 bg-blue-50/60 rounded-xl border border-blue-100 overflow-hidden">
-                    <button onclick="toggleTip('${tipId}')" class="w-full flex items-center gap-2.5 px-4 py-3 text-[12px] font-bold text-blue-600 hover:bg-blue-50 transition-colors text-left">
+                    <button onclick="toggleTip('${tipId}')" class='w-full flex items-center gap-2.5 px-4 py-3 text-[12px] font-bold text-blue-600 hover:bg-blue-50 transition-colors text-left">
                         <i class="fas fa-info-circle text-sm shrink-0"></i>
                         <span>${ev.tip.title}</span>
                         <i id="${tipId}-icon" class="fas fa-chevron-down ml-auto transition-transform duration-300 shrink-0 text-xs"></i>
